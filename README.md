@@ -1,4 +1,4 @@
-# Ethereum Smart Contracts - Insurance Solutions
+# Ethereum Smart Contracts - Insurance Solutions for crypto wallets
 
 ## Overview
 This repository contains a set of Ethereum smart contracts designed to provide decentralized insurance solutions. It includes the `InsuranceFactory` contract for creating insurance policy contracts, along with `CryptoWalletInsurance` and `CollateralLoanInsurance` contracts for specific insurance policies.
