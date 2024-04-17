@@ -18,19 +18,26 @@ task("accounts", "Prints the list of accounts", async (taskArgs, hre) => {
  * @type import('hardhat/config').HardhatUserConfig
  */
 module.exports = {
-  solidity: "0.8.20",
+  solidity: "0.8.17",
   networks: {
-    testnet: {
-      url: "https://data-seed-prebsc-1-s3.binance.org:8545/",
+    arbitrum: {
+      url: "https://sepolia-rollup.arbitrum.io/rpc	",
       accounts: [process.env.ACCOUNT_PRIVATE_KEY],
       //gasPrice: 35000000000,
-      saveDeployments: true,
+      //saveDeployments: true,
     },
-    mainnet: {
-      url: "https://bsc-dataseed1.binance.org/",
+    gnosis: {
+      url: "https://rpc.chiado.gnosis.gateway.fm",
       accounts: [process.env.ACCOUNT_PRIVATE_KEY],
-      gasPrice: 35000000000,
-      saveDeployments: true,
+      //gasPrice: 35000000000,
+      //saveDeployments: true,
+    },
+    neondevnet: {
+      url: "https://neon-evm-devnet.drpc.org",
+      accounts: [process.env.ACCOUNT_PRIVATE_KEY],
+      allowUnlimitedContractSize: false,
+      timeout: 1000000,
+      isFork: true,
     },
   }
 };

@@ -65,7 +65,7 @@ Deploying on BSC Testnet / Mainnet
 
 # This command will deploy your smart contract on BSC testnet
 
-  npx hardhat run scripts/deploy.js --network testnet
+  npx hardhat run scripts/deploy.js --network neondevnet
 
 <https://dweb.link/ipfs/bafkreiens5gxjvktoyamjtyrzdx3zynp3pqysx4aamjaq7xmoilitwd6v4>   no-return
 
