@@ -10,10 +10,9 @@ import Web3Modal from "web3modal";
 import axios from 'axios'
 import { rgba } from 'polished';
 import { Wallet, providers } from "ethers";
-
 import 'dotenv/config';
-import fileNFT from "../artifacts/contracts/Galleria.sol/Galleria.json";
-import { galleriaAddress } from "../config";
+import fileABI from "../artifacts/contracts/Badgry.sol/Badagry.json";
+import { badagryAddressneon } from "../config";
 // const APIKEY = [process.env.NFT_STORAGE_API_KEY];
 const APIKEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkaWQ6ZXRocjoweDA4Zjc4ODAwMkUzZDAwNEIxMDI3NTFGMUQ0OTJlNmI1NjNFODE3NmMiLCJpc3MiOiJuZnQtc3RvcmFnZSIsImlhdCI6MTY1MzA1NjE4NzM4MCwibmFtZSI6InBlbnNpb25maSJ9.agI-2V-FeK_eVRAZ-T6KGGfE9ltWrTUQ7brFzzYVwdM";
 
@@ -65,8 +64,8 @@ const MintFile = () => {
       const connection = await web3Modal.connect();
       const provider = new ethers.providers.Web3Provider(connection);
 
-      const connectedContract = new ethers.Contract(galleriaAddress , fileNFT.abi, provider.getSigner());
-      console.log("Connected to contract", galleriaAddress );
+      const connectedContract = new ethers.Contract(badagryAddressneon , fileABI.abi, provider.getSigner());
+      console.log("Connected to contract", badagryAddressneon  );
       console.log("IPFS blockchain uri is ", metadata.url);
 
       const mintNFTTx = await connectedContract.createFile(metadata.url);
@@ -95,7 +94,7 @@ const MintFile = () => {
     // 1. upload File content via NFT.storage
     const metaData = await uploadNFTContent(uploadedFile);
 
-    // 2. Mint a NFT token on Telos Chain
+    // 2. Mint a NFT token on Chain
     const mintNFTTx = await sendTxToBlockchain(metaData);
 
     // 3. preview the minted nft

@@ -21,7 +21,7 @@ module.exports = {
   solidity: "0.8.17",
   networks: {
     arbitrum: {
-      url: "https://sepolia-rollup.arbitrum.io/rpc	",
+      url: "https://sepolia-rollup.arbitrum.io/rpc",
       accounts: [process.env.ACCOUNT_PRIVATE_KEY],
       //gasPrice: 35000000000,
       //saveDeployments: true,

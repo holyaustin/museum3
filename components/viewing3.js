@@ -5,8 +5,8 @@ import Web3Modal from 'web3modal'
 import axios from "axios";
 import { useRouter } from 'next/router'
 
-import fileNFT from "../artifacts/contracts/Minter.sol/Minter.json";
-import { MinterAddress } from "../config2";
+import fileNFT from "../artifacts/contracts/MinterBadagry.sol/MinterBadagry.json";
+import { minterBadagryAddressneon } from "../config";
 
 export default function ViewFile() {
   console.log('Entered viewing component');
@@ -50,7 +50,7 @@ export default function ViewFile() {
 
     /* create the NFT */
     //const price = ethers.utils.parseUnits(formInput.price, 'ether')
-    let contract = new ethers.Contract(MinterAddress, fileNFT.abi, signer)
+    let contract = new ethers.Contract(minterBadagryAddressneon, fileNFT.abi, signer)
     let listingPrice = await contract.getListingPrice()
     listingPrice = listingPrice.toString()
     console.log("Listing price is ", listingPrice)
@@ -69,7 +69,7 @@ export default function ViewFile() {
     const signer = provider.getSigner()
 
     /* create the NFT */
-    let contract = new ethers.Contract(MinterAddress, fileNFT.abi, signer)
+    let contract = new ethers.Contract(minterBadagryAddressneon, fileNFT.abi, signer)
     let listingPrice = await contract.getListingPrice()
     listingPrice = listingPrice.toString()
     console.log("Listing price is ", listingPrice)

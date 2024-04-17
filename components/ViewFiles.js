@@ -8,13 +8,11 @@ import axios from "axios";
 import { useRouter } from 'next/router'
 import { useNavigate, useLocation } from "react-router-dom";
 import Web3Modal from "web3modal";
-// import { Player } from '@livepeer/react';
 import Image from 'next/image';
 import { rgba } from 'polished';
 import Popup from 'reactjs-popup';
-//import 'reactjs-popup/dist/index.css';
-import fileNFT from "../artifacts/contracts/Galleria.sol/Galleria.json";
-import { galleriaAddress } from "../config";
+import fileABI from "../artifacts/contracts/Badgry.sol/Badagry.json";
+import { badagryAddressneon } from "../config";
 
 export default function ViewFiles() {
   const router = useRouter();
@@ -32,8 +30,9 @@ export default function ViewFiles() {
     return ipfsGateWayURL;
   };
   
-  const rpcUrl = "https://data-seed-prebsc-1-s3.binance.org:8545/";
-   // const rpcUrl = "localhost";
+  const rpcNeon = "https://neon-evm-devnet.drpc.org";
+  const rpcChiado = "https://rpc.chiado.gnosis.gateway.fm";
+  const rpcArbitrum = "https://sepolia-rollup.arbitrum.io/rpc";
 
   async function loadfileNFT() {
     const web3Modal = new Web3Modal({
@@ -43,7 +42,7 @@ export default function ViewFiles() {
     const connection = await web3Modal.connect();
     const provider = new ethers.providers.Web3Provider(connection);
     const signer = provider.getSigner();
-    const contract = new ethers.Contract(galleriaAddress, fileNFT.abi, signer);
+    const contract = new ethers.Contract(badagryAddressneon, fileABI.abi, signer);
     const data = await contract.fetchAllStorageItems();
     /*
     *  map over items returned from smart contract and format
@@ -132,7 +131,7 @@ export default function ViewFiles() {
             <div key={i} className="shadow rounded-xl overflow-hidden border-2 border-white-500">
               
               <img
-                title="fileNFT"
+                title="file NFT"
                 height="auto"
                 width="100%"
                 objectfit="cover"

@@ -17,11 +17,13 @@ import ShareLink from "react-twitter-share-link";
 
 import blenderPoster from '../public/galverse/logo.png';
 import fileNFT from "../artifacts/contracts/Galleria.sol/Galleria.json";
-import { galleriaAddress } from "../config";
+import { badagryAddressneon } from "../config";
 
-import fileNFT2 from "../artifacts/contracts/Minter.sol/Minter.json";
-import { MinterAddress } from "../config2";
+import fileNFT from "../artifacts/contracts/Badgry.sol/Badagry.json";
+import { badagryAddressneon } from "../config";
 
+import fileNFT2 from "../artifacts/contracts/MinterBadagry.sol/MinterBadagry.json";
+import { minterBadagryAddressneon } from "../config";
 
 const containerStyle = {
   position: "relative",
@@ -79,7 +81,7 @@ export default function Watching() {
       const signer = provider.getSigner()
   
       /* create the NFT */
-      let contract = new ethers.Contract(MinterAddress, fileNFT2.abi, signer)
+      let contract = new ethers.Contract(minterBadagryAddressneon, fileNFT2.abi, signer)
       let listingPrice = await contract.getListingPrice()
       listingPrice = listingPrice.toString()
       console.log("Listing price is ", listingPrice)
@@ -111,7 +113,7 @@ export default function Watching() {
     const connection = await web3Modal.connect();
     const provider = new ethers.providers.Web3Provider(connection);
     const signer = provider.getSigner();
-    const contract = new ethers.Contract(galleriaAddress, fileNFT.abi, signer);
+    const contract = new ethers.Contract(badagryAddressneon, fileNFT.abi, signer);
     const data = await contract.fetchOneNews(vid);
     const data2 = await contract.fetchViews(vid);
 
@@ -167,7 +169,7 @@ export default function Watching() {
       const web3Modal = new Web3Modal();
       const connection = await web3Modal.connect();
       const provider = new ethers.providers.Web3Provider(connection);
-      const connectedContract = new ethers.Contract(galleriaAddress, fileNFT.abi, provider.getSigner());
+      const connectedContract = new ethers.Contract(badagryAddressneon, fileNFT.abi, provider.getSigner());
       console.log("Count variable is ", vid);
 
       const mintNFTTx = await connectedContract.createViewItem(vid);
