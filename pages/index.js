@@ -8,7 +8,7 @@ import ConnectWallet from "../components/ConnectWallet";
 
 import { config } from '../dapp.config'
 import Roadmap from './Roadmap'
-import Marketplace from './Marketplace';
+import Marketplace from './marketfront';
 
 export default function Home() {
   return (

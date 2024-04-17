@@ -1,14 +1,9 @@
 # Museum 3 : A Web3 museum with zero-knowledge proof
 
-## Introduction
-
-![home](./1.webp)
-
-## Deliverables : Submitted projects should have
-
 ### 1. Project / Team name
 
 Museum 3
+![home](./bannerblack.png)
 
 ### 2. Short description about the project
 

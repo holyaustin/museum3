@@ -2,8 +2,8 @@ const FORTMATIC_KEY = process.env.NEXT_PUBLIC_FORTMATIC_KEY
 const RPC_URL = process.env.NEXT_PUBLIC_ALCHEMY_RPC_URL
 
 const config = {
-  title: 'Galleria',
-  description: 'First African web3 Museum for preserving the African heritage through story telling',
+  title: 'Museum 3',
+  description: 'A Web3 museum with zero-knowledge proof',
   contractAddress: '0xD547726541FB37dB19fDB263f4855bA969034071',
   maxMintAmount: 10,
   presaleMaxMintAmount: 3,
@@ -22,14 +22,14 @@ const onboardOptions = {
         walletName: 'walletLink',
         preferred: true,
         rpcUrl: RPC_URL,
-        appName: 'Galleria Dapp'
+        appName: 'Museum 3 Dapp'
       },
       {
         walletName: 'fortmatic',
         apiKey: FORTMATIC_KEY,
         preferred: true
       },
-      { walletName: 'trust', preferred: true, rpcUrl: RPC_URL },
+      { walletName: 'arbitrium', preferred: true, rpcUrl: RPC_URL },
       { walletName: 'gnosis', preferred: true },
       { walletName: 'authereum' },
 

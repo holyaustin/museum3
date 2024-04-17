@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Marketplace = () => {
+const Marketfront = () => {
   return (
     <div className="pt-16 pb-32">
             <div className="w-full mx-auto container 2xl:px-0 xl:px-4 px-8">
@@ -82,4 +82,4 @@ const Marketplace = () => {
   )
 }
 
-export default Marketplace
+export default Marketfront
