@@ -19,12 +19,12 @@ import { rgba } from 'polished';
 import { useRouter } from 'next/router'
 
 const truncateAddress = (address) => `${address.slice(0, 8)}...${address.slice(-4)}`;
-const chainId = 41 // Telos Testnet
+const chainId = 421614
 const uauth = new UAuth({
   clientID: "58971f20-5524-49c9-b021-72c37275da1a",
   redirectUri:
     process.env.NODE_ENV === "production"
-      ? "https://galleria-museum.vercel.app/"
+      ? "https://museum3.vercel.app/"
       : "http://localhost:3000",
 });
 
@@ -51,12 +51,12 @@ const ConnectWallet = () => {
       try {
         await ethereum.request({
           method: 'wallet_switchEthereumChain',
-          params: [{ chainId: '0x29' }],
+          params: [{ chainId: '0x66eee' }],
         });
       } catch (switchError) {
         if (switchError.code === 4902) {
           // You can make a request to add the chain to wallet here
-          console.log('Telos Testnet has not been added to the wallet!')
+          console.log('Arbitrum Sepolia Testnet has not been added to the wallet!')
         }
       }
   }
@@ -121,7 +121,7 @@ const ConnectWallet = () => {
 
           </div>
           <div>
-            <Button variant="primary" sx={styles.submit }
+            <Button variant="primary" sx={styles.submit}
               type="button"
               onClick={logout}
             >
@@ -134,7 +134,7 @@ const ConnectWallet = () => {
           <Button variant="primary" sx={styles.submit }
             type="button"  onClick={connectWallet}
           >
-            {haveMetamask ? "Start Your Tour" : "Install metamask"}
+            {haveMetamask ? "Start Your Tour Now" : "Install metamask"}
           </Button>
         </div>
       )}
@@ -225,8 +225,9 @@ const styles = {
     },
   },
   submit: {
-    fontSize: [1, null, null, 4],
+    fontSize: [1, null, null, '36px'],
     mt: [0],
+    fontWeight: 900,
     minHeight: [45, null, null, 60],
     width: '100%',
   },

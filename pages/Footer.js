@@ -13,7 +13,7 @@ const Footer = () => {
               href="/"
             >
 
-              <img src="/galverse/logo2.png" alt="logo" height="50px" />
+              <img src="/logo/bannerblack.png" alt="logo" height="50px" />
             </a>
             <div className="social-share flex items-center">
               <a
@@ -206,14 +206,14 @@ const Footer = () => {
         </div>
         <div className="lg:text-center mt-8 lg:mt-14">
           <p className="font-body text-sm text-blueGray-600">
-            © <span id="spanYear">2024</span> Galleria - All Rights Reserved by{' '}
+            © <span id="spanYear">2024</span> Museum 3 - All Rights Reserved by{' '}
             <a
-              href="https://twitter.com/holyaustin"
+              href="https://museum3.vercel.app"
               className="text-indigo-500 underline-hover"
               rel="noopener"
               target="_blank"
             >
-              Galleria-Fi Digital Museum
+              Museum 3 Digital Museum
             </a>
           </p>
         </div>

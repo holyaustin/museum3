@@ -1,8 +1,8 @@
 
 const How = () => {
-return (
-<section className="py-24">
-  <div className="container mx-auto">
+return ( 
+<section className="py-24 bg-black" >
+  <div className="container mx-auto  bg-black">
     <h2 className="focus:outline-none text-center text-3xl lg:text-5xl tracking-wider text-gray-100 mb-32">
      HOW TO MINT NFT
     </h2>
@@ -26,7 +26,7 @@ return (
           1. Set up your wallet
         </h3>
         <p className="dark:text-jacarta-300">
-          Lorem ipsum dolor sit amet in pretium nunc. Morbi mollis arcu eget. Ipsum dolor sit amet. Lpsum dolor sit amet  
+        To set up a wallet, download a trusted wallet application like MetaMask or Trust Wallet from your app store. Follow the on-screen instructions to create a new wallet, set a secure password, and back up your recovery phrase.  
         </p>
       </div>
       <div className="text-center">
@@ -48,7 +48,7 @@ return (
           2. Connect you Wallet to gain access
         </h3>
         <p className="dark:text-jacarta-300">
-         Lorem ipsum dolor sit amet in pretium nunc. Morbi mollis arcu eget. Ipsum dolor sit amet. Lpsum dolor sit amet 
+        To gain access, connect your wallet by selecting the wallet provider you've installed, such as MetaMask or Trust Wallet, and authorize access to the desired platform or service. Ensure your wallet is unlocked and connected to the appropriate network for seamless interaction.
         </p>
       </div>
       <div className="text-center">
@@ -70,7 +70,7 @@ return (
           3. Enter the tour page
         </h3>
         <p className="dark:text-jacarta-300">
-          Lorem ipsum dolor sit amet in pretium nunc. Morbi mollis arcu eget. Ipsum dolor sit amet. Lpsum dolor sit amet 
+          Enter the tour selection and choose from the list of museum to start a tour. Selecting one museum of choice give you immense tourism experience.
         </p>
       </div>
       <div className="text-center">
@@ -92,7 +92,7 @@ return (
           4. Mint Collectibles as you tour
         </h3>
         <p className=" text-md">
-          Lorem ipsum dolor sit amet in pretium nunc. Morbi mollis arcu eget. Ipsum dolor sit amet. Lpsum dolor sit amet 
+        Tour the virtual museum and mint collectibles directly to your Web3 wallet as you explore exhibits, leveraging blockchain technology for ownership authentication and secure transactions. Each collectible holds unique significance from your tour experience, enhancing engagement and creating digital memorabilia.
         </p>
       </div>
     </div>

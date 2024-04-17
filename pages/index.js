@@ -8,11 +8,11 @@ import ConnectWallet from "../components/ConnectWallet";
 
 import { config } from '../dapp.config'
 import Roadmap from './Roadmap'
-import Apes from './Apes';
+import Marketplace from './Marketplace';
 
 export default function Home() {
   return (
-    <div className="min-h-screen h-full w-full flex flex-col bg-[#101233] overflow-hidden">
+    <div className="min-h-screen h-full w-full flex flex-col bg-[#000000] overflow-hidden">
       <Head>
         <title>{config.title}</title>
         <meta name="description" content={config.description} />
@@ -22,18 +22,13 @@ export default function Home() {
       <header id='#top' className="min-w-full text-gray-800 px-2  py-5 md:px-0 bg">
         <div className="flex items-center container mx-auto justify-between px-28 h-full">
           {/* Logo  */}
-          <img src="/galverse/logo3.png" alt="logo" height="40px" />
+          <img src="/logo/flatlogo.png" alt="logo" height="40px" />
           <Link href="/">
             <a className="font-coiny text-2xl md:text-2xl font-bold text-white">
            
-              {/*
-              <span className="bg-gradient-to-br from-brand-blue to-brand-purple pr-2 bg-clip-text text-transparent ">
-                GALLERIA
-              </span>
-  */}
             </a>
           </Link>
-
+        
           {/* Opensea Twitter Discord Links */}
           <nav aria-label="Contact Menu">
             <ul className="flex items-center space-x-4 md:space-x-6 text-gray-100">
@@ -92,7 +87,7 @@ export default function Home() {
           <span className="animate-pulse"></span>
           <a
                   href="/marketplace"
-                  className="a2c a1Y a10 a5 a1Z a1f a1y a1B a1C aP a1s aW aX aZ a1w hover:a36"
+                  className=" a2c a1Y a10 a5 a1Z a1f a1y a1B a1C aP a1s aW aX aZ a1w hover:a36"
                 >
                🔥  Explore MarketPlace
                 </a>
@@ -101,7 +96,7 @@ export default function Home() {
         </h2>
       </header>
       <How />
-      <Apes/>
+      <Marketplace/>
       <Roadmap />
       <Footer />
     </div>
