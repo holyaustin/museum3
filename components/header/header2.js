@@ -125,7 +125,7 @@ export default function Header() {
                     <div className="flex items-center justify-between py-3 md:py-5 md:block">
                         <a href="/">
                 {/** <h2 className="text-2xl font-bold text-red-500">Galleria</h2> **/}
-                <Image src="/galverse/logo3.png" loading="lazy" sx={styles.logo} alt="logo" />
+                <Image src="/logo/logoflat.png" loading="lazy" sx={styles.logo} alt="logo" />
                         </a>
                         <div className="md:hidden">
                             <button
