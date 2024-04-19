@@ -5,17 +5,17 @@ import Web3Modal from 'web3modal'
 import axios from "axios";
 import { useRouter } from 'next/router'
 
-import fileNFT from "../artifacts/contracts/MinterBadagry.sol/MinterBadagry.json";
-import { minterBadagryAddressneon } from "../config";
+import fileNFT from "../artifacts/contracts/MinterEgypt.sol/MinterEgypt.json";
+import { minterEgyptAddressneon } from "../config";
 
 export default function ViewFile() {
   console.log('Entered viewing component');
   const router = useRouter();
   const [nfts, setNfts] = useState([]);
   const [loadingState, setLoadingState] = useState("not-loaded");
-  const image = "/slave/chainfreedom.jpg"
-  const image2 = "/slave/8.jpg"
-  const image3 = "/slave/3.jpg"
+  const image = "/egypt/lionstatue.avif"
+  const image2 = "/egypt/asset10.jpg"
+  const image3 = "/egypt/asset11.jpg"
   useEffect(() => {
     // eslint-disable-next-line no-use-before-define
     // loadBounties();
@@ -42,8 +42,8 @@ export default function ViewFile() {
 
 
    async function Mint2() {
-    console.log("Minting NFT1");
-    const url2 = "https://dweb.link/ipfs/bafkreiazjwjv4xne5ddgw3ffespwnosqrm6ugsgy3fcbiz5e2xch3ygc2e";
+    console.log("Minting NFT2");
+    const url2 = "https://bafybeih6x7pjn4jjatjmgp4wewooa7g4vvch2xjudwyxyxo47risfehhbi.ipfs.dweb.link/roomtomb.avif";
     const web3Modal = new Web3Modal()
     const connection = await web3Modal.connect()
     const provider = new ethers.providers.Web3Provider(connection)
@@ -51,7 +51,7 @@ export default function ViewFile() {
 
     /* create the NFT */
     //const price = ethers.utils.parseUnits(formInput.price, 'ether')
-    let contract = new ethers.Contract(minterBadagryAddressneon, fileNFT.abi, signer)
+    let contract = new ethers.Contract(minterEgyptAddressneon, fileNFT.abi, signer)
     let listingPrice = await contract.getListingPrice()
     listingPrice = listingPrice.toString()
     console.log("Listing price is ", listingPrice)
@@ -62,7 +62,7 @@ export default function ViewFile() {
 
   async function Mint1() {
     console.log("Minting NFT1");
-     const url = "https://dweb.link/ipfs/bafkreid3scqqf2tye6aspnxwbht6yk47llmzrfiwrmvxmahqg42ttpxyye";
+     const url = "https://bafybeih6x7pjn4jjatjmgp4wewooa7g4vvch2xjudwyxyxo47risfehhbi.ipfs.dweb.link/pharoahbench.avif";
 
     const web3Modal = new Web3Modal()
     const connection = await web3Modal.connect()
@@ -70,7 +70,7 @@ export default function ViewFile() {
     const signer = provider.getSigner()
 
     /* create the NFT */
-    let contract = new ethers.Contract(minterBadagryAddressneon, fileNFT.abi, signer)
+    let contract = new ethers.Contract(minterEgyptAddressneon, fileNFT.abi, signer)
     let listingPrice = await contract.getListingPrice()
     listingPrice = listingPrice.toString()
     console.log("Listing price is ", listingPrice)
@@ -94,7 +94,7 @@ export default function ViewFile() {
     <Box as="section"  sx={styles.section} className="bg-blue-100 ">
     <>
     <div className=" text-4xl text-center text-white font-bold ">
-        <h1>Africa and Enslavement</h1>
+        <h1>Memorial to famous Egyptologists</h1>
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-1 lg:grid-cols-4 grid-rows-5 sm:grid-rows-3 lg:grid-rows-3 col-gap-2 row-gap-5 bg-gray-300 mx-20 my-5">
 
@@ -153,15 +153,11 @@ export default function ViewFile() {
     
     <div className="bg-white shadow rounded-xl overflow-hidden">
       <div className="p-4">
-        <p style={{ height: "20px" }} className="text-3xl font-semibold underline">Page Seven Information</p>
+        <p style={{ height: "20px" }} className="text-3xl font-semibold underline">Memorial </p>
       </div>
       <br/><p>
-      In 1808, the British West Africa Squadron was established to suppress illegal slave trading. Between 1820 and 1870, Royal Navy patrols seized over 1500 ships and freed 150,000 Africans destined for slavery in the Americas. </p>
-      <br/><p>
-Many people believed that the only way to eradicate slavery was to promote ‘legitimate’ trade and European forms of religion and government in Africa. This paved the way for colonial rule later in the 19th century.</p>
-<br/><p>
-The role of many slaves themselves in bringing slavery to an end is often overlooked. Resistance among slaves in the Caribbean was not uncommon. Indeed, slaves in the French colony of St Domingue seized control of the island and it was eventually declared to be the republic of Haiti. Figures such as Olaudah Equiano and Mary Prince, by adding their eye witness accounts to abolitionist literature, also made a major contribution to the abolition campaign.
-</p>
+      In the garden adjacent to the building of the museum, is a memorial to famous egyptologists of the world. It features a monument to Auguste Mariette, surrounded by 24 busts of the following egyptologists: François Chabas, Johannes Dümichen, Conradus Leemans, Charles Wycliffe Goodwin, Emmanuel de Rougé, Samuel Birch, Edward Hincks, Luigi Vassalli, Émile Brugsch, Karl Richard Lepsius, Théodule Devéria, Vladimir Golenishchev, Ippolito Rosellini, Labib Habachi, Sami Gabra, Selim Hassan, Ahmed Kamal, Zakaria Goneim, Jean-François Champollion, Amedeo Peyron, Willem Pleyte, Gaston Maspero, Peter le Page Renouf[17] and Kazimierz Michałowski.  </p>
+      
   </div></div>
 	<div className="text-white bg-indigo-500  text-4xl flex items-center justify-center border-4 border-red-500">
     

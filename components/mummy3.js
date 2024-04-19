@@ -5,17 +5,17 @@ import Web3Modal from 'web3modal'
 import axios from "axios";
 import { useRouter } from 'next/router'
 
-import fileNFT from "../artifacts/contracts/MinterBadagry.sol/MinterBadagry.json";
-import { minterBadagryAddressneon } from "../config";
+import fileNFT from "../artifacts/contracts/MinterEgypt.sol/MinterEgypt.json";
+import { minterEgyptAddressneon } from "../config";
 
 export default function ViewFile() {
   console.log('Entered viewing component');
   const router = useRouter();
   const [nfts, setNfts] = useState([]);
   const [loadingState, setLoadingState] = useState("not-loaded");
-  const image = "/slave/shippingslaves.jpg"
-  const image2 = "/slave/8.jpg"
-  const image3 = "/slave/4.jpg"
+  const image = "/egypt/couplestatue.avif"
+  const image2 = "/egypt/asset2.jpg"
+  const image3 = "/egypt/asset3.jpg"
   useEffect(() => {
     // eslint-disable-next-line no-use-before-define
     // loadBounties();
@@ -40,8 +40,8 @@ export default function ViewFile() {
    console.log('Props result is without ', props.id);
 
    async function Mint2() {
-    console.log("Minting NFT1");
-    const url2 = "https://dweb.link/ipfs/bafkreiens5gxjvktoyamjtyrzdx3zynp3pqysx4aamjaq7xmoilitwd6v4";
+    console.log("Minting NFT2");
+    const url2 = "https://bafybeih6x7pjn4jjatjmgp4wewooa7g4vvch2xjudwyxyxo47risfehhbi.ipfs.dweb.link/bug.avif";
     const web3Modal = new Web3Modal()
     const connection = await web3Modal.connect()
     const provider = new ethers.providers.Web3Provider(connection)
@@ -49,7 +49,7 @@ export default function ViewFile() {
 
     /* create the NFT */
     //const price = ethers.utils.parseUnits(formInput.price, 'ether')
-    let contract = new ethers.Contract(minterBadagryAddressneon, fileNFT.abi, signer)
+    let contract = new ethers.Contract(minterEgyptAddressneon, fileNFT.abi, signer)
     let listingPrice = await contract.getListingPrice()
     listingPrice = listingPrice.toString()
     console.log("Listing price is ", listingPrice)
@@ -60,7 +60,7 @@ export default function ViewFile() {
 
   async function Mint1() {
     console.log("Minting NFT1");
-     const url = "https://dweb.link/ipfs/bafkreifm6dg5eh7hwui3fac2jrewiewcu4e7vm5opwuhwznr3p7n4gsdum";
+     const url = "https://bafybeih6x7pjn4jjatjmgp4wewooa7g4vvch2xjudwyxyxo47risfehhbi.ipfs.dweb.link/asset15.jpg";
 
     const web3Modal = new Web3Modal()
     const connection = await web3Modal.connect()
@@ -68,7 +68,7 @@ export default function ViewFile() {
     const signer = provider.getSigner()
 
     /* create the NFT */
-    let contract = new ethers.Contract(minterBadagryAddressneon, fileNFT.abi, signer)
+    let contract = new ethers.Contract(minterEgyptAddressneon, fileNFT.abi, signer)
     let listingPrice = await contract.getListingPrice()
     listingPrice = listingPrice.toString()
     console.log("Listing price is ", listingPrice)
@@ -94,7 +94,7 @@ export default function ViewFile() {
     <Box as="section"  sx={styles.section} className="bg-blue-100 ">
     <>
       <div className=" text-4xl text-center text-white font-bold ">
-        <h1>Visions of the Caribbean: resistance</h1>
+        <h1>artifacts</h1>
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-1 lg:grid-cols-4 grid-rows-5 sm:grid-rows-3 lg:grid-rows-3 col-gap-2 row-gap-5 bg-gray-300 mx-20 my-5">
 
@@ -152,18 +152,13 @@ export default function ViewFile() {
 	<div className="row-span-3 text-black bg-white text-2xl flex text-left p-3 ">
     <div className="bg-white shadow rounded-xl overflow-hidden">
       <div className="p-4">
-        <p style={{ height: "20px" }} className="text-3xl font-semibold underline">Page Three Information</p>
+        <p style={{ height: "20px" }} className="text-3xl font-semibold underline">artifacts</p>
       </div>
       <br/>
       <p>
-      Enslaved people fought to retain their families, cultures, customs and dignity. Resistance took many forms: from keeping aspects of their identity and traditions alive to escaping and plotting uprisings.</p>
+      Several artifacts were also shown to have been damaged and around 50 objects were stolen. Since then, 25 objects have been found. Those that were restored were put on display in September 2013 in an exhibition entitled "Damaged and Restored". Among the displayed artifacts were two statues of King Tutankhamun made of cedar wood and covered with gold, a statue of King Akhenaten, ushabti statues that belonged to the Nubian kings, a mummy of a child, and a small polychrome glass vase.</p>
       <br/>
-      <p>
-      On the plantations they broke tools, damaged crops and feigned injury or illness in order to frustrate plantation owners and their ambitions for greater profits. At other times, they made bids for freedom by escaping. Sometimes these ‘runaways’ grouped together and built their own independent, self-sufficient communities of resistance, often known as ‘maroons’.</p>
-      <br/>
-      <p>
-      Large-scale organised uprisings were a common reaction to the cruelties of the slave system. Potential and actual armed resistance also contributed to the ending of the slave trade and eventually slavery itself.
-      </p>
+  
   </div>
   </div>
 	<div className="text-white bg-indigo-500  text-4xl flex items-center justify-center border-4 border-red-500">

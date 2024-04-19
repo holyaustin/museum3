@@ -12,12 +12,7 @@ import Web3Modal from "web3modal";
 import Image from 'next/image';
 import { rgba } from 'polished';
 import ShareLink from "react-twitter-share-link";
-//import Popup from 'reactjs-popup';
-//import 'reactjs-popup/dist/index.css';
-
 import blenderPoster from '../public/galverse/logo.png';
-import fileNFT from "../artifacts/contracts/Galleria.sol/Galleria.json";
-import { badagryAddressneon } from "../config";
 
 import fileNFT from "../artifacts/contracts/Badgry.sol/Badagry.json";
 import { badagryAddressneon } from "../config";

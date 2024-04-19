@@ -4,17 +4,17 @@ import { ethers } from "ethers";
 import Web3Modal from 'web3modal'
 import axios from "axios";
 import { useRouter } from 'next/router'
-import fileNFT from "../artifacts/contracts/MinterBadagry.sol/MinterBadagry.json";
-import { minterBadagryAddressneon } from "../config";
+import fileNFT from "../artifacts/contracts/MinterEgypt.sol/MinterEgypt.json";
+import { minterEgyptAddressneon } from "../config";
 
 export default function ViewFile() {
   console.log('Entered viewing component');
   const router = useRouter();
   const [nfts, setNfts] = useState([]);
   const [loadingState, setLoadingState] = useState("not-loaded");
-  const image = "/slave/baracoon.webp"
-  const image2 = "/slave/mirror3.jpeg"
-  const image3 = "/slave/7.webp"
+  const image = "/egypt/2statue.avif"
+  const image2 = "/egypt/antique.jpg"
+  const image3 = "/egypt/asset1.jpg"
   useEffect(() => {
     // eslint-disable-next-line no-use-before-define
     // loadBounties();
@@ -41,8 +41,8 @@ export default function ViewFile() {
    console.log('Props result is without ', props.id);
 
    async function Mint2() {
-    console.log("Minting NFT1");
-    const url2 = "https://dweb.link/ipfs/bafkreigums2o5e7zowjuoincidxvmz77lk7dv2euovxivcgt6lw5pa4pxq";
+    console.log("Minting NFT2");
+    const url2 = "https://bafybeih6x7pjn4jjatjmgp4wewooa7g4vvch2xjudwyxyxo47risfehhbi.ipfs.dweb.link/asset13.jpg";
     const web3Modal = new Web3Modal()
     const connection = await web3Modal.connect()
     const provider = new ethers.providers.Web3Provider(connection)
@@ -50,7 +50,7 @@ export default function ViewFile() {
 
     /* create the NFT */
     //const price = ethers.utils.parseUnits(formInput.price, 'ether')
-    let contract = new ethers.Contract(minterBadagryAddressneon, fileNFT.abi, signer)
+    let contract = new ethers.Contract(minterEgyptAddressneon, fileNFT.abi, signer)
     let listingPrice = await contract.getListingPrice()
     listingPrice = listingPrice.toString()
     console.log("Listing price is ", listingPrice)
@@ -61,7 +61,7 @@ export default function ViewFile() {
 
   async function Mint1() {
     console.log("Minting NFT1");
-     const url = "https://dweb.link/ipfs/bafkreiaji5ih7pwq4nx5dmzhjwfw23gy74sffw6av77ax5y76n7v3dydcy";
+     const url = " https://bafybeih6x7pjn4jjatjmgp4wewooa7g4vvch2xjudwyxyxo47risfehhbi.ipfs.dweb.link/asset14.jpg";
 
     const web3Modal = new Web3Modal()
     const connection = await web3Modal.connect()
@@ -69,7 +69,7 @@ export default function ViewFile() {
     const signer = provider.getSigner()
 
     /* create the NFT */
-    let contract = new ethers.Contract(minterBadagryAddressneon, fileNFT.abi, signer)
+    let contract = new ethers.Contract(minterEgyptAddressneon, fileNFT.abi, signer)
     let listingPrice = await contract.getListingPrice()
     listingPrice = listingPrice.toString()
     console.log("Listing price is ", listingPrice)
@@ -95,7 +95,7 @@ export default function ViewFile() {
     <Box as="section"  sx={styles.section} className="bg-blue-100 ">
     <>
     <div className=" text-4xl text-center text-white font-bold ">
-        <h1>The Middle Passage</h1>
+        <h1>The History</h1>
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-1 lg:grid-cols-4 grid-rows-5 sm:grid-rows-3 lg:grid-rows-3 col-gap-2 row-gap-5 bg-gray-300 mx-20 my-5">
 
@@ -154,14 +154,14 @@ export default function ViewFile() {
    
     <div className="bg-white shadow rounded-xl overflow-hidden">
       <div className="p-4">
-        <p style={{ height: "20px" }} className="text-3xl font-semibold underline">Page Two Information</p>
+        <p style={{ height: "20px" }} className="text-3xl font-semibold underline">History </p>
       </div>
       <br/>
       <p>
-      The ‘Middle Passage’ was the harrowing voyage experienced by the millions of African captives transported across the Atlantic in European ships, to work as slaves in the Americas. Conditions on board slave ships were appalling: huge numbers of people were crammed into very small spaces. Men, women and children were separated, families being torn apart.</p>
+      A new museum was established at Boulaq in 1858 in a former warehouse, following the foundation of the new Antiquities Department under the direction of Auguste Mariette. The building lay on the bank of the Nile River, and in 1878 it suffered significant damage owing to the flooding of the Nile River. In 1891, the collections were moved to a former royal palace, in the Giza district of Cairo. They remained there until 1902 when they were moved again to the current museum in Tahrir Square, built by the Italian company of Giuseppe Garozzo and Francesco Zaffrani to a design by the French architect Marcel Dourgnon.</p>
       <br/>
       <p>
-        Overcrowding, poor diet, dehydration and disease led to high death rates. 450,000 of the 3.4 million Africans transported in British ships died on the Atlantic crossing. Those who resisted by refusing food and water were beaten and force-fed. Attempts at more violent, organised rebellion were even more savagely punished. Some people preferred death to slavery and committed suicide during the voyage or later.
+      In 2004, the museum appointed Wafaa El Saddik as the first female director general.During the Egyptian Revolution of 2011, the museum was broken into, and two mummies were destroyed
         </p>
 
 

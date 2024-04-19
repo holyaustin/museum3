@@ -5,17 +5,17 @@ import Web3Modal from 'web3modal'
 import axios from "axios";
 import { useRouter } from 'next/router'
 
-import fileNFT from "../artifacts/contracts/MinterBadagry.sol/MinterBadagry.json";
-import { minterBadagryAddressneon } from "../config";
+import fileNFT from "../artifacts/contracts/MinterEgypt.sol/MinterEgypt.json";
+import { minterEgyptAddressneon } from "../config";
 
 export default function ViewFile() {
   console.log('Entered viewing component');
   const router = useRouter();
   const [nfts, setNfts] = useState([]);
   const [loadingState, setLoadingState] = useState("not-loaded");
-  const image = "/slave/SlaveShipplan.webp"
-  const image2 = "/slave/7.webp"
-  const image3 = "/slave/2.jpg"
+  const image = "/egypt/status1.avif"
+  const image2 = "/egypt/asset8.jpg"
+  const image3 = "/egypt/asset9.jpg"
   useEffect(() => {
     // eslint-disable-next-line no-use-before-define
     // loadBounties();
@@ -41,8 +41,8 @@ export default function ViewFile() {
 
 
    async function Mint2() {
-    console.log("Minting NFT1");
-    const url2 = "https://dweb.link/ipfs/bafkreidjp2mriqgeaheap2m7o2ypvwj4fb3r3isjtvkdppyiud7z3ek27i";
+    console.log("Minting NFT2");
+    const url2 = "https://bafybeih6x7pjn4jjatjmgp4wewooa7g4vvch2xjudwyxyxo47risfehhbi.ipfs.dweb.link/mummy.jpg";
     const web3Modal = new Web3Modal()
     const connection = await web3Modal.connect()
     const provider = new ethers.providers.Web3Provider(connection)
@@ -50,7 +50,7 @@ export default function ViewFile() {
 
     /* create the NFT */
     //const price = ethers.utils.parseUnits(formInput.price, 'ether')
-    let contract = new ethers.Contract(minterBadagryAddressneon, fileNFT.abi, signer)
+    let contract = new ethers.Contract(minterEgyptAddressneon, fileNFT.abi, signer)
     let listingPrice = await contract.getListingPrice()
     listingPrice = listingPrice.toString()
     console.log("Listing price is ", listingPrice)
@@ -61,7 +61,7 @@ export default function ViewFile() {
 
   async function Mint1() {
     console.log("Minting NFT1");
-     const url = "https://dweb.link/ipfs/bafkreigums2o5e7zowjuoincidxvmz77lk7dv2euovxivcgt6lw5pa4pxq ";
+     const url = "https://bafybeih6x7pjn4jjatjmgp4wewooa7g4vvch2xjudwyxyxo47risfehhbi.ipfs.dweb.link/lionstatue.avif";
 
     const web3Modal = new Web3Modal()
     const connection = await web3Modal.connect()
@@ -69,7 +69,7 @@ export default function ViewFile() {
     const signer = provider.getSigner()
 
     /* create the NFT */
-    let contract = new ethers.Contract(minterBadagryAddressneon, fileNFT.abi, signer)
+    let contract = new ethers.Contract(minterEgyptAddressneon, fileNFT.abi, signer)
     let listingPrice = await contract.getListingPrice()
     listingPrice = listingPrice.toString()
     console.log("Listing price is ", listingPrice)
@@ -92,7 +92,7 @@ export default function ViewFile() {
     <Box as="section"  sx={styles.section} className="bg-blue-100 ">
     <>
     <div className=" text-4xl text-center text-white font-bold ">
-        <h1>Mobilizing public support</h1>
+        <h1>Interior design and collections</h1>
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-1 lg:grid-cols-4 grid-rows-5 sm:grid-rows-3 lg:grid-rows-3 col-gap-2 row-gap-5 bg-gray-300 mx-20 my-5">
 
@@ -149,14 +149,14 @@ export default function ViewFile() {
     
     <div className="bg-white shadow rounded-xl overflow-hidden">
       <div className="p-4">
-        <p style={{ height: "20px" }} className="text-3xl font-semibold underline">Page One Information</p>
+        <p style={{ height: "20px" }} className="text-3xl font-semibold underline">collections</p>
       </div>
       <br/><p>
-      Abolitionists succeeded in mobilizing unprecedented public support. Through a campaign of information they demonstrated what lay behind the sugar, tobacco and coffee enjoyed by Britons. People signed petitions, attended lectures and abstained from eating West Indian sugar.</p>
+      Also on the ground floor are artifacts from the New Kingdom, the time period between 1550 and 1069 BC. These artifacts are generally larger than items created in earlier centuries. Those items include statues, tables, and coffins (sarcophagi). It contains 42 rooms; with many items on view from sarcophagi and boats to enormous statues. </p>
       <br/><p>
-Many people who signed petitions could not vote and this was their only means of expressing their opinion to Parliament. Over 100 petitions against the slave trade were submitted to Parliament in 1788, rising to 519 in 1792. For the first time in a public political campaign, women were extensively involved, adding their voices to the calls for abolition.</p>
+      On the first floor are artifacts from the final two dynasties of Egypt, including items from the tombs of the Pharaohs Thutmosis III, Thutmosis IV, Amenophis II, Hatshepsut, and the courtier Maiherpri, as well as many artifacts from the Valley of the Kings, in particular the material from the intact tombs of Tutankhamun and Psusennes I. </p>
 <br/><p>
-Although the British Parliament outlawed slavery in 1807, a quarter of all Africans who were enslaved were transported across the Atlantic after this date. In British colonies, the institution of slavery carried on as before, until Parliament passed an Emancipation Act in 1833. This was achieved by a combination of active resistance in the Caribbean and campaigning in Britain. Even then, full emancipation was not realized until 1838 when a period of unpaid labour ended and 800,000 people were freed across the British Caribbean. But Parliament also voted to pay the plantation owners £20 million in compensation. No payment was made to the ex-slaves.</p>
+Until 2021, two rooms contained a number of mummies of kings and other royal family members of the New Kingdom. On April 3, 2021, twenty-two of these mummies were transferred to the National Museum of Egyptian Civilization in Fustat in a grand parade dubbed The Pharaohs' Golden Parade.[</p>
 
   </div> </div>
 	<div className="text-white bg-indigo-500  text-4xl flex items-center justify-center border-4 border-red-500">

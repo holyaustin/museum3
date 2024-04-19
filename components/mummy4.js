@@ -5,17 +5,17 @@ import Web3Modal from 'web3modal'
 import axios from "axios";
 import { useRouter } from 'next/router'
 
-import fileNFT from "../artifacts/contracts/MinterBadagry.sol/MinterBadagry.json";
-import { minterBadagryAddressneon } from "../config";
+import fileNFT from "../artifacts/contracts/MinterEgypt.sol/MinterEgypt.json";
+import { minterEgyptAddressneon } from "../config";
 
 export default function ViewFile() {
   console.log('Entered viewing component');
   const router = useRouter();
   const [nfts, setNfts] = useState([]);
   const [loadingState, setLoadingState] = useState("not-loaded");
-  const image = "/slave/slaveinship.jpg"
-  const image2 = "/slave/5.jpg"
-  const image3 = "/slave/1.jpg"
+  const image = "/egypt/kingbracelet.avif"
+  const image2 = "/egypt/asset4.jpg"
+  const image3 = "/egypt/asset5.jpg"
   useEffect(() => {
     // eslint-disable-next-line no-use-before-define
     // loadBounties();
@@ -41,8 +41,8 @@ export default function ViewFile() {
 
 
    async function Mint2() {
-    console.log("Minting NFT1");
-    const url2 = "https://dweb.link/ipfs/bafkreifm6dg5eh7hwui3fac2jrewiewcu4e7vm5opwuhwznr3p7n4gsdum";
+    console.log("Minting NFT2");
+    const url2 = "https://bafybeih6x7pjn4jjatjmgp4wewooa7g4vvch2xjudwyxyxo47risfehhbi.ipfs.dweb.link/encrypted.avif";
     const web3Modal = new Web3Modal()
     const connection = await web3Modal.connect()
     const provider = new ethers.providers.Web3Provider(connection)
@@ -50,7 +50,7 @@ export default function ViewFile() {
 
     /* create the NFT */
     //const price = ethers.utils.parseUnits(formInput.price, 'ether')
-    let contract = new ethers.Contract(minterBadagryAddressneon, fileNFT.abi, signer)
+    let contract = new ethers.Contract(minterEgyptAddressneon, fileNFT.abi, signer)
     let listingPrice = await contract.getListingPrice()
     listingPrice = listingPrice.toString()
     console.log("Listing price is ", listingPrice)
@@ -61,7 +61,7 @@ export default function ViewFile() {
 
   async function Mint1() {
     console.log("Minting NFT1");
-     const url = "https://dweb.link/ipfs/bafkreiftew6irumtjaxrwj6ywj2mpbjizrr4kdb5p4yjf3e7i2ulaa4boq";
+     const url = "https://bafybeih6x7pjn4jjatjmgp4wewooa7g4vvch2xjudwyxyxo47risfehhbi.ipfs.dweb.link/couplestatue.avif";
 
     const web3Modal = new Web3Modal()
     const connection = await web3Modal.connect()
@@ -69,7 +69,7 @@ export default function ViewFile() {
     const signer = provider.getSigner()
 
     /* create the NFT */
-    let contract = new ethers.Contract(minterBadagryAddressneon, fileNFT.abi, signer)
+    let contract = new ethers.Contract(minterEgyptAddressneon, fileNFT.abi, signer)
     let listingPrice = await contract.getListingPrice()
     listingPrice = listingPrice.toString()
     console.log("Listing price is ", listingPrice)
@@ -92,7 +92,7 @@ export default function ViewFile() {
     <Box as="section"  sx={styles.section} className="bg-blue-100 ">
     <>
     <div className=" text-4xl text-center text-white font-bold ">
-        <h1>How did the slave trade develop in Britain?</h1>
+        <h1>Sale room for antiquities</h1>
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-1 lg:grid-cols-4 grid-rows-5 sm:grid-rows-3 lg:grid-rows-3 col-gap-2 row-gap-5 bg-gray-300 mx-20 my-5">
 
@@ -151,16 +151,13 @@ export default function ViewFile() {
     
     <div className="bg-white shadow rounded-xl overflow-hidden">
       <div className="p-4">
-        <p style={{ height: "20px" }} className="text-3xl font-semibold underline">Page Four Information</p>
+        <p style={{ height: "20px" }} className="text-3xl font-semibold underline">Sale room for antiquities</p>
       </div>
       <br/>
       <p>
-      Elizabeth I believed that capturing Africans against their will 'would be detestable and call down the vengeance of Heaven upon the undertakers', yet after seeing the huge profits available she lent Royal Ships to two slaving expeditions of John Hawkins – the first English trader of enslaved people from West Africa to the Americas.</p>
+      The Department of Antiquities (Service d'Antiquités Egyptien) operated a sale room (Salle de ventes) in the Egyptian Museum in Cairo from 1902 in room 56 on the ground floor, where original ancient Egyptian artworks and other original artefacts were sold. In addition, until the 1970s, dealers or collectors could bring antiquities to the Cairo Museum for inspection on Thursdays, and if museum officials had no objections, they could pack them in ready-made boxes, have them sealed and cleared for export. Many objects now held in private collections or public museums originated here. After years of debate about the strategy for selling the antiquities, the sale room was closed in November 1979.</p>
       <br/>
-      <p>
-          No English settlements were established in North America or in the West Indies during the reign of Elizabeth, but in the 17th century the English began to acquire territory in the New World. The English colonies expanded rapidly and the development of a plantation system and the growth of the Atlantic economy brought further demands for African labour. This increased the scale of the trade in enslaved people.</p>
-          <br/><p>
-          In the first third of the 18th century, Britain’s involvement in the slave trade grew enormously. In the 1710s and 1720s, nearly 200,000 enslaved Africans were transported across the Atlantic in British ships.</p>
+      
           </div> 
   </div> 
 	<div className="text-white bg-indigo-500  text-4xl flex items-center justify-center border-4 border-red-500">

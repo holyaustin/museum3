@@ -5,17 +5,17 @@ import Web3Modal from 'web3modal'
 import axios from "axios";
 import { useRouter } from 'next/router'
 
-import fileNFT from "../artifacts/contracts/MinterBadagry.sol/MinterBadagry.json";
-import { minterBadagryAddressneon } from "../config";
+import fileNFT from "../artifacts/contracts/MinterEgypt.sol/MinterEgypt.json";
+import { minterEgyptAddressneon } from "../config";
 
 export default function ViewFile() {
   console.log('Entered viewing component');
   const router = useRouter();
   const [nfts, setNfts] = useState([]);
   const [loadingState, setLoadingState] = useState("not-loaded");
-  const image = "/slave/inspection2.webp"
-  const image2 = "/slave/2.jpg"
-  const image3 = "/slave/8.jpg"
+  const image = "/egypt/encrypted.avif"
+  const image2 = "/egypt/asset6.jpg"
+  const image3 = "/egypt/asset7.jpg"
   useEffect(() => {
     // eslint-disable-next-line no-use-before-define
     // loadBounties();
@@ -42,7 +42,7 @@ export default function ViewFile() {
 
    async function Mint2() {
     console.log("Minting NFT1");
-    const url2 = "https://dweb.link/ipfs/bafkreid3scqqf2tye6aspnxwbht6yk47llmzrfiwrmvxmahqg42ttpxyye";
+    const url2 = "https://bafybeih6x7pjn4jjatjmgp4wewooa7g4vvch2xjudwyxyxo47risfehhbi.ipfs.dweb.link/kingbracelet.avif";
     const web3Modal = new Web3Modal()
     const connection = await web3Modal.connect()
     const provider = new ethers.providers.Web3Provider(connection)
@@ -50,7 +50,7 @@ export default function ViewFile() {
 
     /* create the NFT */
     //const price = ethers.utils.parseUnits(formInput.price, 'ether')
-    let contract = new ethers.Contract(minterBadagryAddressneon, fileNFT.abi, signer)
+    let contract = new ethers.Contract(minterEgyptAddressneon, fileNFT.abi, signer)
     let listingPrice = await contract.getListingPrice()
     listingPrice = listingPrice.toString()
     console.log("Listing price is ", listingPrice)
@@ -61,7 +61,7 @@ export default function ViewFile() {
 
   async function Mint1() {
     console.log("Minting NFT1");
-     const url = "https://dweb.link/ipfs/bafkreidjp2mriqgeaheap2m7o2ypvwj4fb3r3isjtvkdppyiud7z3ek27i";
+     const url = "https://bafybeih6x7pjn4jjatjmgp4wewooa7g4vvch2xjudwyxyxo47risfehhbi.ipfs.dweb.link/frontpage.avif";
 
     const web3Modal = new Web3Modal()
     const connection = await web3Modal.connect()
@@ -69,7 +69,7 @@ export default function ViewFile() {
     const signer = provider.getSigner()
 
     /* create the NFT */
-    let contract = new ethers.Contract(minterBadagryAddressneon, fileNFT.abi, signer)
+    let contract = new ethers.Contract(minterEgyptAddressneon, fileNFT.abi, signer)
     let listingPrice = await contract.getListingPrice()
     listingPrice = listingPrice.toString()
     console.log("Listing price is ", listingPrice)
@@ -93,7 +93,7 @@ export default function ViewFile() {
     <Box as="section"  sx={styles.section} className="bg-blue-100 ">
     <>
     <div className=" text-4xl text-center text-white font-bold ">
-        <h1>Abolitionism in Britain</h1>
+        <h1>Interior design and collections</h1>
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-1 lg:grid-cols-4 grid-rows-5 sm:grid-rows-3 lg:grid-rows-3 col-gap-2 row-gap-5 bg-gray-300 mx-20 my-5">
 
@@ -152,15 +152,14 @@ export default function ViewFile() {
    
     <div  className="bg-white shadow rounded-xl overflow-hidden">
       <div className="p-4">
-        <p style={{ height: "20px" }} className="text-3xl font-semibold underline">Page Five Information</p>
+        <p style={{ height: "20px" }} className="text-3xl font-semibold underline">Interior design</p>
       </div>
       <br/>
       <p> 
-      Abolitionism was one of Britain’s first lobbying movements. The first meeting of the Society for Effecting the Abolition of the Slave Trade took place in London in May 1787. African writers and activists such as Olaudah Equiano spoke out against the trade and its inhumane treatment of Africans. High-profile figures such as William Wilberforce MP, and Thomas Clarkson also used their influence to effect its abolition. </p>
+      There are two main floors in the museum, the ground floor and the first floor. On the ground floor is an extensive collection of large-scale works in stone including statues, reliefs and architectural elements. These are arranged chronologically in clockwise fashion, from the pre-dynastic to the Greco-Roman period.[14] The first floor is dedicated to smaller works, including papyri, coins, textiles, and an enormous collection of wooden sarcophagi.  </p>
       <br/> <p>
-Abolitionists argued that, in addition to stopping an immoral practice, ending the slave trade would save the lives of thousands of European sailors and open new markets for British goods. But their pro-slavery opponents pointed out how important Caribbean plantations were to Britain’s economy.</p>
-<br/><p>
-Parliament finally passed an Act to abolish the slave trade in 1807. It stated that all slave trading by British subjects was ‘utterly abolished, prohibited and declared to be unlawful’. But it did not end the institution of slavery itself and nearly 750,000 people remained enslaved in British colonies across the Caribbean.</p>
+      The numerous pieces of papyrus are generally small fragments, owing to their decay over the past two millennia. Several languages are found on these pieces, including Greek, Latin, Arabic, and ancient Egyptian. The coins found on this floor are made of many different metals, including gold, silver, and bronze. The coins are not only Egyptian, but also Greek, Roman, and Islamic. This has helped historians research the history of Ancient Egyptian trade. </p>
+
 
   </div> </div>
 	<div className="text-white bg-indigo-500  text-4xl flex items-center justify-center border-4 border-red-500">
