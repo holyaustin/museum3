@@ -33,25 +33,40 @@ const ConnectWallet = () => {
   const [haveMetamask, sethaveMetamask] = useState(true);
   const [address, setAddress] = useState();
 
+  const checkMetamaskAvailability = async () => {
+    if (!ethereum) {
+      sethaveMetamask(false);
+    }
+    sethaveMetamask(true);
+  };
+
   useEffect(() => {
     const { ethereum } = window;
-    const checkMetamaskAvailability = async () => {
-      if (!ethereum) {
-        sethaveMetamask(false);
-      }
-      sethaveMetamask(true);
-    };
+
     checkMetamaskAvailability();
   }, []);
 
-  const SwitchChainToBase = async () => {
+  const checkNetwork = async () => {
+    try {
+      if ((window.ethereum.networkVersion !== "421614") && (window.ethereum.networkVersion !== "245022926") && (window.ethereum.networkVersion !== "10200")) {
+    
+        alert("Please connect to Arbitrum Sepolia Testnet or Gnosis Chiado Testnet or Neon Devnet Blockchain! \n You can add it to your Wallet using \n https://chainlist.org/?testnets=true");
+        return;
+      } 
+      
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const SwitchChain = async () => {
     const { ethereum } = window;
       if (typeof ethereum !== 'undefined' && ethereum.isMetaMask) return;
       
       try {
         await ethereum.request({
           method: 'wallet_switchEthereumChain',
-          params: [{ chainId: '0x66eee' }],
+          params: [{ chainId: '421614' }],
         });
       } catch (switchError) {
         if (switchError.code === 4902) {
@@ -61,7 +76,15 @@ const ConnectWallet = () => {
       }
   }
 
-   const connectWallet = async () => {
+  const connectWallet = async () => {
+    checkMetamaskAvailability();
+    //checkNetwork();
+    if ((window.ethereum.networkVersion !== "421614") && (window.ethereum.networkVersion !== "245022926") && (window.ethereum.networkVersion !== "10200")) {
+    
+      alert("Please connect to Arbitrum Sepolia Testnet or Gnosis Chiado Testnet or Neon Devnet Blockchain! \n You can add it to your Metamask using \n https://chainlist.org/chain/421614");
+      return;
+    } 
+   
       if (!address) {
         const { ethereum } = window;
         try {

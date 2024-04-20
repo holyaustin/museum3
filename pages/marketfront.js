@@ -19,19 +19,19 @@ const Marketfront = () => {
                     <div className="flex md:flex-row flex-col flex-wrap items-center xl:justify-between justify-center">
                         <div className="px-2 sm:flex sm:items-center sm:justify-center md:mt-0 mt-16 xl:w-1/3 sm:w-1/2">
                             <div className="bg-indigo-700 glass flex px-5 items-center justify-center relative xl:w-full h-full pb-32">
-                                <img className="w-full object-cover object-center -mt-32" src="/slave/1.jpg" alt="a building with multiple windows" role="img" />
+                                <img className="w-full object-cover object-center -mt-32" src="/egypt/asset1.jpg" alt="a building with multiple windows" role="img" />
                                 <div className="absolute bottom-0 left-0 mb-12 ml-7 flex items-center">
                                     <hr className="w-16 border-2 bg-white border-white" />
-                                    <p className="text-2xl font-light leading-normal ml-2 text-white">SLAVE NFT</p>
+                                    <p className="text-2xl font-light leading-normal ml-2 text-white">EGYPT NFT</p>
                                 </div>
                             </div>
                         </div>
                         <div className="px-2 sm:flex sm:items-center sm:justify-center md:mt-0 mt-48 xl:w-1/3 sm:w-1/2 xl:-mb-48">
                             <div className="bg-indigo-700 glass flex px-5 items-center justify-center relative xl:w-full h-full pb-32">
-                                <img className="w-full object-cover object-center -mt-32" src="/slave/2.jpg" alt="a building made of mirrored glass" role="img" />
+                                <img className="w-full object-cover object-center -mt-32" src="/egypt/asset6.jpg" alt="a building made of mirrored glass" role="img" />
                                 <div className="absolute bottom-0 left-0 mb-12 ml-7 flex items-center">
                                     <hr className="w-16 border-2 bg-white border-white" />
-                                    <p className="text-2xl font-light leading-normal ml-2 text-white">SLAVE NFT</p>
+                                    <p className="text-2xl font-light leading-normal ml-2 text-white">EGYPT NFT</p>
                                 </div>
                             </div>
                         </div>
@@ -59,10 +59,10 @@ const Marketfront = () => {
                         </div>
                         <div className="px-2 sm:flex sm:items-center sm:justify-center md:mt-0 mt-48 xl:w-1/3 sm:w-1/2 xl:-mb-48">
                             <div className="bg-indigo-700 glass flex px-5 items-center justify-center relative xl:w-full h-full pb-32">
-                                <img className="w-full object-cover object-center -mt-32" src="/slave/5.jpg" alt="A tall building having multiple windows and hazy sky in the back." role="img" />
+                                <img className="w-full object-cover object-center -mt-32" src="/egypt/asset10.jpg" alt="A tall building having multiple windows and hazy sky in the back." role="img" />
                                 <div className="absolute bottom-0 left-0 mb-12 ml-7 flex items-center">
                                     <hr className="w-16 border-2 bg-white border-white" />
-                                    <p className="text-2xl font-light leading-normal ml-2 text-white">SLAVE NFT</p>
+                                    <p className="text-2xl font-light leading-normal ml-2 text-white">EGYPT NFT</p>
                                 </div>
                             </div>
                         </div>

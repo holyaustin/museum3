@@ -1,7 +1,7 @@
 /** @jsxRuntime classic */
 /** @jsx jsx */
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { jsx, Box } from 'theme-ui';
 import { NFTStorage } from "nft.storage";
 import { useRouter } from 'next/router'
@@ -11,9 +11,13 @@ import axios from 'axios'
 import { rgba } from 'polished';
 import { Wallet, providers } from "ethers";
 import 'dotenv/config';
-import fileABI from "../artifacts/contracts/Badgry.sol/Badagry.json";
-import { badagryAddressneon } from "../config";
-// const APIKEY = [process.env.NFT_STORAGE_API_KEY];
+
+import fileNFTABI2 from "../artifacts/contracts/Badgry.sol/Badagry.json";
+import { badagryAddressarbitrum } from "../config";
+import { badagryAddresschiado } from "../config";
+import { badagryAddressneon  } from "../config";
+
+
 const APIKEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkaWQ6ZXRocjoweDA4Zjc4ODAwMkUzZDAwNEIxMDI3NTFGMUQ0OTJlNmI1NjNFODE3NmMiLCJpc3MiOiJuZnQtc3RvcmFnZSIsImlhdCI6MTY1MzA1NjE4NzM4MCwibmFtZSI6InBlbnNpb25maSJ9.agI-2V-FeK_eVRAZ-T6KGGfE9ltWrTUQ7brFzzYVwdM";
 
 const MintFile = () => {
@@ -25,6 +29,27 @@ const MintFile = () => {
   const [txURL, setTxURL] = useState();
   const [txStatus, setTxStatus] = useState();
   const [formInput, updateFormInput] = useState({ name: "" });
+
+  useEffect(() => {
+    // eslint-disable-next-line no-use-before-define
+    console.log('Entered UseEffect');
+    checkNetwork();
+        
+  }, []);
+
+  const checkNetwork = async () => {
+    try {
+      if ((window.ethereum.networkVersion !== "421614") && (window.ethereum.networkVersion !== "245022926") && (window.ethereum.networkVersion !== "10200")) {
+    
+        alert("Please connect to Arbitrum Sepolia Testnet or Gnosis Chiado Testnet or Neon Devnet Blockchain! \n You can add it to your Wallet using \n https://chainlist.org/?testnets=true");
+        router.push("/select");
+        return;
+      } 
+      
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   const handleFileUpload = (event) => {
     console.log("file for upload selected...");
@@ -59,21 +84,59 @@ const MintFile = () => {
 
   const sendTxToBlockchain = async (metadata) => {
     try {
+      if (window.ethereum.networkVersion == "421614")  {
       setTxStatus("Adding transaction to Blockchain");
       const web3Modal = new Web3Modal();
       const connection = await web3Modal.connect();
       const provider = new ethers.providers.Web3Provider(connection);
-
-      const connectedContract = new ethers.Contract(badagryAddressneon , fileABI.abi, provider.getSigner());
-      console.log("Connected to contract", badagryAddressneon  );
-      console.log("IPFS blockchain uri is ", metadata.url);
-
-      const mintNFTTx = await connectedContract.createFile(metadata.url);
-      console.log("File successfully created and added to Blockchain");
-      await mintNFTTx.wait();
-      return mintNFTTx;
+          console.log('currently inside Arbitrum Sepolia Testnet');
+          const connectedContract = new ethers.Contract(badagryAddressarbitrum , fileNFTABI2.abi, provider.getSigner());
+          console.log("Connected to contract", badagryAddressarbitrum );
+          console.log("IPFS blockchain uri is ", metadata.url);
+    
+          const mintNFTTx = await connectedContract.createFile(metadata.url);
+          console.log("File successfully created and added to Blockchain");
+          await mintNFTTx.wait();
+          return mintNFTTx;
+        } 
+        // gnosis chiado testnet
+        else if (window.ethereum.networkVersion == "10200") {
+          console.log('currently inside Gnosis Chiado Testnet');
+          setTxStatus("Adding transaction to Blockchain");
+          const web3Modal = new Web3Modal();
+          const connection = await web3Modal.connect();
+          const provider = new ethers.providers.Web3Provider(connection);
+              const connectedContract = new ethers.Contract(badagryAddresschiado , fileNFTABI2.abi, provider.getSigner());
+              console.log("Connected to contract", badagryAddresschiado );
+              console.log("IPFS blockchain uri is ", metadata.url);
+        
+              const mintNFTTx = await connectedContract.createFile(metadata.url);
+              console.log("File successfully created and added to Blockchain");
+              await mintNFTTx.wait();
+              return mintNFTTx;
+        } 
+        // neon devnet
+        else if (window.ethereum.networkVersion == "245022926") {
+          console.log('currently inside Neon Devnet');
+          setTxStatus("Adding transaction to Blockchain");
+          const web3Modal = new Web3Modal();
+          const connection = await web3Modal.connect();
+          const provider = new ethers.providers.Web3Provider(connection);
+              const connectedContract = new ethers.Contract(badagryAddressneon , fileNFTABI2.abi, provider.getSigner());
+              console.log("Connected to contract", badagryAddressneon );
+              console.log("IPFS blockchain uri is ", metadata.url);
+        
+              const mintNFTTx = await connectedContract.createFile(metadata.url);
+              console.log("File successfully created and added to Blockchain");
+              await mintNFTTx.wait();
+              return mintNFTTx;
+        } 
+        else {
+          router.push("/");
+          return;
+        }
     } catch (error) {
-      setErrorMessage("Failed to send tx to Base.");
+      setErrorMessage("Failed to send tx to Blockchain.");
       console.log(error);
     }
   };
@@ -84,7 +147,7 @@ const MintFile = () => {
     console.log("image ipfs path is", imgViewString);
     setImageView(imgViewString);
     setMetaDataURl(getIPFSGatewayURL(metaData.url));
-    setTxURL(`Check transaction on Base Explorer`);
+    setTxURL(`Check transaction on Blockchain Explorer`);
     setTxStatus("File addition was successfully!");
     console.log("File preview completed");
   };
@@ -115,7 +178,7 @@ const MintFile = () => {
   return (
     <Box as="section"  sx={styles.section}>
       <div className="text-4xl text-center text-black font-bold pt-1">
-        <h1> Upload NFT</h1>
+        <h1> Upload Badagry NFT</h1>
       </div>
       <div className="flex justify-center bg-blue-100 text-black">
         <div className="w-1/2 flex flex-col pb-12 ">

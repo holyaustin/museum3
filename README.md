@@ -156,3 +156,8 @@ top view : https://bafybeih6x7pjn4jjatjmgp4wewooa7g4vvch2xjudwyxyxo47risfehhbi.i
 visitors: https://bafybeih6x7pjn4jjatjmgp4wewooa7g4vvch2xjudwyxyxo47risfehhbi.ipfs.dweb.link/visitors.jpg
 woman with statue : https://bafybeih6x7pjn4jjatjmgp4wewooa7g4vvch2xjudwyxyxo47risfehhbi.ipfs.dweb.link/womanculpture.avif
 
+
+            if ((window.ethereum.networkVersion !== "421614") || (window.ethereum.networkVersion !== "245022926") || (window.ethereum.networkVersion !== "245022926")) {
+              alert("Please connect to Arbitrum Sepolia Testnet or Gnosis Chiado Testnet or Neon Devnet Blockchain! \n You can add it to your Metamask using \n https://chainlist.org/chain/421614");
+              return;
+            } 

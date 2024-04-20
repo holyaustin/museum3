@@ -272,7 +272,7 @@ export default function Watching() {
 		<div className="col-span-3 text-white pt-3  text-xl flex items-center justify-center">
     <div className="p-4">
               <button type="button" className="w-full bg-blue-800 text-white font-bold py-2 px-12 border-b-4 border-blue-200 hover:border-blue-500 rounded-full" onClick={() => Claim()}>
-                Buy 2 TLOS</button>
+                Buy 0.25 ETH</button>
                 </div>
                 <div className="p-4">
                   <button type="button" className="w-full bg-blue-800 text-white font-bold py-2 px-12 border-b-4 border-blue-200 hover:border-blue-500 rounded-full">
@@ -287,7 +287,7 @@ export default function Watching() {
                   </button>
                 </div>
                 <div className="p-4">
-                <ShareLink link="https://galleria-museum.vercel.app/marketplace" text="Galleria - First African web3 Museum for preserving the African heritage through storytelling! @Memoi_africa, @hellotelos, and @telosdevelopers" hashtags="Galleria telos web3 museum">
+                <ShareLink link="hhttps://museum3.vercel.app/marketplace" text="Galleria - First African web3 Museum for preserving the African heritage through storytelling!" hashtags="Museum 3 collection">
               {(link) => (
                   <button type="button" className="w-full bg-blue-800 text-white font-bold py-2 px-12 border-b-4 border-blue-200 hover:border-blue-500 rounded-full">                   
                   <a href={link} target="_blank" rel="noreferrer">Share on Twitter</a></button>

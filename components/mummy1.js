@@ -5,8 +5,14 @@ import Web3Modal from 'web3modal'
 import axios from "axios";
 import { useRouter } from 'next/router'
 
-import fileNFT from "../artifacts/contracts/MinterEgypt.sol/MinterEgypt.json";
+import fileNFTABI from "../artifacts/contracts/MinterEgypt.sol/MinterEgypt.json";
 import { minterEgyptAddressneon } from "../config";
+
+import fileNFTABI2 from "../artifacts/contracts/MinterEgypt.sol/MinterEgypt.json";
+import { minterEgyptAddresschiado } from "../config";
+
+import fileNFTABI3 from "../artifacts/contracts/MinterEgypt.sol/MinterEgypt.json";
+import { minterEgyptAddressarbitrum } from "../config";
 
 const containerStyle = {
   position: "relative",
@@ -30,34 +36,78 @@ export default function ViewFile() {
   const router = useRouter();
   const [nfts, setNfts] = useState([]);
   const [loadingState, setLoadingState] = useState("not-loaded");
+
+  const [fileNFT, setFileNFT] = useState("");
+  const [contractAddress, setContractAddress] = useState("");
+
   const sharelink = "https://www.youtube.com/embed/Q9MUK9dQr68";
   const image2 = "/egypt/asset1.jpg"
   const image3 = "/egypt/frontpage.avif"
+
   useEffect(() => {
     // eslint-disable-next-line no-use-before-define
-    // loadBounties();
+    console.log('Entered UseEffect');
+    checkNetwork();
+    try {
+    // arbitrum sepolia testnet
+    if (window.ethereum.networkVersion == "421614")  {
+      console.log('currently inside Arbitrum Sepolia Testnet');
+      setFileNFT(fileNFTABI3);
+      setContractAddress(minterEgyptAddressarbitrum);
+      return;
+    } 
+    // gnosis chiado testnet
+    else if (window.ethereum.networkVersion == "10200") {
+      console.log('currently inside Gnosis Chiado Testnet');
+      setFileNFT(fileNFTABI2);
+      setContractAddress(minterEgyptAddresschiado);
+      return;
+    } 
+    // neon devnet
+    else if (window.ethereum.networkVersion == "245022926") {
+      setFileNFT(fileNFTABI);
+      setContractAddress(minterEgyptAddressneon);
+      console.log('currently inside Neon Devnet');
+      return;
+    } 
+    else {
+      router.push("/select");
+      return;
+    }
+      
+    } catch (error) {
+      console.log(error);
+    }
   }, []);
+
+
+
   const getIPFSGatewayURL = (ipfsURL) => {
     const urlArray = ipfsURL.split("/");
     const ipfsGateWayURL = `https://${urlArray[2]}.ipfs.nftstorage.link/${urlArray[3]}`;
     return ipfsGateWayURL;
   };
-
-  const getId = (props) => {
-    console.log(props);
-    return props;
+ 
+  const checkNetwork = async () => {
+    try {
+      if ((window.ethereum.networkVersion !== "421614") && (window.ethereum.networkVersion !== "245022926") && (window.ethereum.networkVersion !== "10200")) {
+    
+        alert("Please connect to Arbitrum Sepolia Testnet or Gnosis Chiado Testnet or Neon Devnet Blockchain! \n You can add it to your Wallet using \n https://chainlist.org/?testnets=true");
+        router.push("/select");
+        return;
+      } 
+      
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   async function Next() {
     router.push("/egypt2");
   }
 
-   const { query: id } = router; 
-   const props =  id ;
-   console.log('Props result is without ', props.id);
-
    async function Mint2() {
-    console.log("Minting NFT2");
+     console.log("Minting NFT2");
     const url2 = "https://bafybeih6x7pjn4jjatjmgp4wewooa7g4vvch2xjudwyxyxo47risfehhbi.ipfs.dweb.link/frontnight.jpg";
     const web3Modal = new Web3Modal()
     const connection = await web3Modal.connect()
@@ -65,8 +115,8 @@ export default function ViewFile() {
     const signer = provider.getSigner()
 
     /* create the NFT */
-    //const price = ethers.utils.parseUnits(formInput.price, 'ether')
-    let contract = new ethers.Contract(minterEgyptAddressneon, fileNFT.abi, signer)
+     console.log("Contract address is", contractAddress);
+    let contract = new ethers.Contract(contractAddress, fileNFT.abi, signer)
     let listingPrice = await contract.getListingPrice()
     listingPrice = listingPrice.toString()
     console.log("Listing price is ", listingPrice)
@@ -85,8 +135,8 @@ export default function ViewFile() {
     const signer = provider.getSigner()
 
     /* create the NFT */
-
-    let contract = new ethers.Contract(minterEgyptAddressneon
+    console.log("Contract address is", contractAddress)
+    let contract = new ethers.Contract(contractAddress
       , fileNFT.abi, signer)
     let listingPrice = await contract.getListingPrice()
     listingPrice = listingPrice.toString()

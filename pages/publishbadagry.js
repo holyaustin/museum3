@@ -3,7 +3,7 @@ import { ThemeProvider } from 'theme-ui';
 import theme from '../theme';
 import SEO from '../components/seo';
 import Layout from '../components/layout2';
-import Mintfile from '../components/Mintfile';
+import Mintfile from '../components/MintfileBadagry';
 import Footer from './Footer'
 
 export default function PublishNews() {
