@@ -151,9 +151,17 @@ const Footer = () => {
               <li className="mb-4 mr-4">
                 <a
                   className="font-body text-blueGray-600 transition duration-500 hover:text-indigo-500 underline-hover"
-                  href="/publish"
+                  href="/publishegypt"
                 >
-                 Mint Page
+                 Mint Egypt
+                </a>
+              </li>
+              <li className="mb-4 mr-4">
+                <a
+                  className="font-body text-blueGray-600 transition duration-500 hover:text-indigo-500 underline-hover"
+                  href="/publishbadagry"
+                >
+                 Mint Badagry
                 </a>
               </li>
               <li className="mb-4 mr-4">
