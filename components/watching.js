@@ -8,17 +8,25 @@ import axios from "axios";
 import { useRouter } from 'next/router'
 import { useNavigate, useLocation } from "react-router-dom";
 import Web3Modal from "web3modal";
-// import { Player } from '@livepeer/react';
 import Image from 'next/image';
 import { rgba } from 'polished';
 import ShareLink from "react-twitter-share-link";
-import blenderPoster from '../public/galverse/logo.png';
+import blenderPoster from '../public/logo/logo.png';
 
-import fileNFT from "../artifacts/contracts/Badgry.sol/Badagry.json";
-import { badagryAddressneon } from "../config";
+import fileNFTABI from "../artifacts/contracts/Egypt.sol/Egypt.json";
+import fileNFTABI2 from "../artifacts/contracts/Badgry.sol/Badagry.json";
+import { egyptAddressarbitrum } from "../config";
+import { egyptAddresschiado } from "../config";
+import { egyptAddressneon } from "../config";
+
+import { badagryAddressarbitrum } from "../config";
+import { badagryAddresschiado } from "../config";
+import { badagryAddressneon  } from "../config";
 
 import fileNFT2 from "../artifacts/contracts/MinterBadagry.sol/MinterBadagry.json";
 import { minterBadagryAddressneon } from "../config";
+
+
 
 const containerStyle = {
   position: "relative",
@@ -46,9 +54,24 @@ export default function Watching() {
   const [loadingState, setLoadingState] = useState("not-loaded");
   useEffect(() => {
     // eslint-disable-next-line no-use-before-define
-    loadVideo();
-    loadCount();
-    console.log("Counter executed")
+    if (window.ethereum.networkVersion == "421614")  {
+      loadAssetArbitrum();
+      return;
+    } 
+    else if (window.ethereum.networkVersion == "245022926") {
+      loadAssetNeon();
+      
+      return;
+    }  
+
+    else if (window.ethereum.networkVersion == "10200") {
+      loadAssetChiado();
+      return;
+    } 
+    else {
+      alert("Please connect to Arbitrum Sepolia Testnet or Gnosis Chiado Testnet or Neon Devnet Blockchain! \n You can add it to your Wallet using \n https://chainlist.org/?testnets=true");
+    }
+
   }, []);
 
   const getIPFSGatewayURL = (ipfsURL) => {
@@ -76,26 +99,21 @@ export default function Watching() {
       const signer = provider.getSigner()
   
       /* create the NFT */
-      let contract = new ethers.Contract(minterBadagryAddressneon, fileNFT2.abi, signer)
-      let listingPrice = await contract.getListingPrice()
-      listingPrice = listingPrice.toString()
-      console.log("Listing price is ", listingPrice)
+    let contract = new ethers.Contract(egyptAddresschiado, fileNFTABI.abi, signer)
+      const weiValue = 100000;
+    let listingPrice = ethers.utils.parseEther(weiValue.toString());
+    //{ value: ethers.utils.parseEther(price.toString())}
       let transaction = await contract.createFile(url, { value: listingPrice })
       await transaction.wait()
       alert("NFT Successfully collected");
-  
-    
-
   }
-
-  const rpcUrl = "https://data-seed-prebsc-1-s3.binance.org:8545/";
-   // const rpcUrl = "localhost";
 
    const { query: vid } = router; 
    const props =  vid ;
    console.log('Props result is without ', props.vid);
 
-  async function loadVideo() {
+  
+  async function loadAssetChiado() {
     /* create a generic provider and query for items */
     console.log("loading Moments for item", props.vid);
     const vid = props.vid;
@@ -108,7 +126,7 @@ export default function Watching() {
     const connection = await web3Modal.connect();
     const provider = new ethers.providers.Web3Provider(connection);
     const signer = provider.getSigner();
-    const contract = new ethers.Contract(badagryAddressneon, fileNFT.abi, signer);
+    const contract = new ethers.Contract(egyptAddresschiado, fileNFTABI.abi, signer);
     const data = await contract.fetchOneNews(vid);
     const data2 = await contract.fetchViews(vid);
 
@@ -153,18 +171,135 @@ export default function Watching() {
     setLoadingState("loaded");
   }
 
-  async function loadCount() {
+  async function loadAssetArbitrum() {
     /* create a generic provider and query for items */
+    console.log("loading Moments for item", props.vid);
+    const vid = props.vid;
+    console.log("vid is ", vid);
+
+    const web3Modal = new Web3Modal({
+      network: 'mainnet',
+      cacheProvider: true,
+    })
+    const connection = await web3Modal.connect();
+    const provider = new ethers.providers.Web3Provider(connection);
+    const signer = provider.getSigner();
+    const contract = new ethers.Contract(egyptAddressarbitrum, fileNFTABI.abi, signer);
+    const data = await contract.fetchOneNews(vid);
+    const data2 = await contract.fetchViews(vid);
+
+    /*
+    *  map over items returned from smart contract and format
+    *  them as well as fetch their token metadata
+    */
+    const items = await Promise.all(data.map(async i => {
+      console.log("inside data mapping");
+      const tokenUri = await contract.tokenURI(i.tokenId);
+      console.log("token Uri is ", tokenUri);
+      const httpUri = getIPFSGatewayURL(tokenUri);
+      console.log("Http Uri is ", httpUri);
+      const meta = await axios.get(httpUri);
+      
+      const count = (data2.toNumber())+1
+      console.log("Moment data fetched from contract");
+      console.log("data2 value is ", data2);
+      console.log("count value is ", count);
+      const filename = i.fileName;
+      console.log("Filename is ", filename);
+      const created = new Date((i.dateCreated).toNumber() * 1000).toLocaleDateString();
+      console.log("date created is ", created);
+      const description = i.description;
+      console.log("description is ", description);
+
+      const item = {
+        tokenId: i.tokenId.toNumber(),
+        image: getIPFSGatewayURL(meta.data.image),
+        name: meta.data.name,
+        created: created,
+        description: meta.data.description,
+        sharelink: getIPFSGatewayURL(meta.data.image),
+        owner: i.owner.toString(),
+        view: count,
+      };
+      console.log("item returned is ", item);
+      setOwners(item.owner);
+      return item;
+    }));
+    setNfts(items);
+    setLoadingState("loaded");
+  }
+
+  async function loadAssetNeon() {
+    /* create a generic provider and query for items */
+    console.log("loading Moments for item", props.vid);
+    const vid = props.vid;
+    console.log("vid is ", vid);
+
+    const web3Modal = new Web3Modal({
+      network: 'mainnet',
+      cacheProvider: true,
+    })
+    const connection = await web3Modal.connect();
+    const provider = new ethers.providers.Web3Provider(connection);
+    const signer = provider.getSigner();
+    const contract = new ethers.Contract(egyptAddressneon, fileNFTABI.abi, signer);
+    const data = await contract.fetchOneNews(vid);
+    const data2 = await contract.fetchViews(vid);
+
+    /*
+    *  map over items returned from smart contract and format
+    *  them as well as fetch their token metadata
+    */
+    const items = await Promise.all(data.map(async i => {
+      console.log("inside data mapping");
+      const tokenUri = await contract.tokenURI(i.tokenId);
+      console.log("token Uri is ", tokenUri);
+      const httpUri = getIPFSGatewayURL(tokenUri);
+      console.log("Http Uri is ", httpUri);
+      const meta = await axios.get(httpUri);
+      
+      const count = (data2.toNumber())+1
+      console.log("Moment data fetched from contract");
+      console.log("data2 value is ", data2);
+      console.log("count value is ", count);
+      const filename = i.fileName;
+      console.log("Filename is ", filename);
+      const created = new Date((i.dateCreated).toNumber() * 1000).toLocaleDateString();
+      console.log("date created is ", created);
+      const description = i.description;
+      console.log("description is ", description);
+
+      const item = {
+        tokenId: i.tokenId.toNumber(),
+        image: getIPFSGatewayURL(meta.data.image),
+        name: meta.data.name,
+        created: created,
+        description: meta.data.description,
+        sharelink: getIPFSGatewayURL(meta.data.image),
+        owner: i.owner.toString(),
+        view: count,
+      };
+      console.log("item returned is ", item);
+      setOwners(item.owner);
+      return item;
+    }));
+    setNfts(items);
+    setLoadingState("loaded");
+  }
+
+  {/** 
+  async function loadCount() {
+
       console.log("loading News for item", props.vid);
     const vid = props.vid;
     console.log("vid is ", vid);
 
     try {
-      //setTxStatus("Adding transaction to Polygon Mumbai..");
+      
       const web3Modal = new Web3Modal();
       const connection = await web3Modal.connect();
       const provider = new ethers.providers.Web3Provider(connection);
-      const connectedContract = new ethers.Contract(badagryAddressneon, fileNFT.abi, provider.getSigner());
+      const connectedContract = new ethers.Contract(egyptAddresschiado, fileNFTABI.abi, provider.getSigner());
       console.log("Count variable is ", vid);
 
       const mintNFTTx = await connectedContract.createViewItem(vid);
@@ -177,6 +312,8 @@ export default function Watching() {
     }
  
   };
+*/}
+
 
   const PosterImage = () => {
     return (
@@ -230,7 +367,7 @@ export default function Watching() {
     {nfts.map((nft, i) => (
     <div key={i} className="overflow-auto text-blue-800  bg-white shadow rounded-xl font-bold">
       <div className="p-1">
-        <p style={{ height: "20px" }} className="text-3xl font-semibold underline">Video Details</p>
+        <p style={{ height: "20px" }} className="text-3xl font-semibold underline">Asset Details</p>
       </div>
       <br/>
       <div className="p-1">
