@@ -1,4 +1,4 @@
-# Museum 3 : A Web3 museum with zero-knowledge proof
+# Museum 3 : A Multi-Chain Web3 museum with zero-knowledge proof
 
 ### 1. Project / Team name
 
