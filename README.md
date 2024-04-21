@@ -7,7 +7,7 @@ Museum 3
 
 ### 2. Short description about the project
 
-MUSEUM 3 is a Web3 museum with zero-knowledge proof that is a digital platform where users can explore and interact with various exhibits or collections while maintaining privacy through zero-knowledge proofs. Zero-knowledge proofs allow users to verify information without revealing the actual data, ensuring anonymity and security. Visitors to the museum could navigate through galleries, view artifacts, and engage with multimedia content, all while their identities and interactions remain confidential. 
+MUSEUM 3 is a Web3 museum with zero-knowledge proof that is a digital platform where users can explore and interact with various exhibits or collections while maintaining privacy through zero-knowledge proofs. Zero-knowledge proofs allow users to verify information without revealing the actual data, ensuring anonymity and security. Visitors to the museum could navigate through galleries, view artifacts, and engage with multimedia content, all while their identities and interactions remain confidential.
 
 ### 3. Discord and Telegram username for the team’s person of contact
 
@@ -23,30 +23,54 @@ twitter (X) : @holyaustin
 
 <https://github.com/holyaustin/museum3>
 
-<https://galleria-fi.vercel.app/>
+<https://museum3.vercel.app/>
 
-### 5. Video demo (90 seconds) and/or Presentation (10 slides max)
+### 5. Video demo
 
-<https://youtu.be/Ti4RCKNeKuA> 
+<https://youtu.be/Ti4RCKNeKuA>
 
-Twitter : https://twitter.com/holyaustin/status/1764812050184786130
+## 6. The contract address(es) or website URLs of your deployed application, either on a testnet of your choice or mainnet of a platform of choice
 
-### 6. The contract address(es) or website URLs of your deployed application, either on a testnet of your choice or mainnet of a platform of choice
+### EthSign
+<https://testnet-scan.sign.global/schema/onchain_evm_421614_0x39>
 
-<https://testnet.bscscan.com/address/0x5f04718FD5A7a499a0d6a95A5861a8648f160122>
+### Arbitrum Sepolia Testnet
 
-<https://testnet.bscscan.com/address/0xA2F763342Bc9dfa21471C24496a700DB61D8Cde4>
+<https://sepolia.arbiscan.io/address/0xfBeFdC343861EDc521dD2512B4B64B33bB663E4d>
 
-<https://testnet.bscscan.com/address/0xD2D6181276c608ca5208955fb68D27332ccCD264>
+<https://sepolia.arbiscan.io/address/0xc9637cB5e3EbAEE5124Daa92EA4Fee1Bd37B71FD>
 
+<https://sepolia.arbiscan.io/address/0x7064f88f4840588b78014d6d3f4556FAAdF20893>
+
+<https://sepolia.arbiscan.io/address/0xEA9113F3DCAf50541092847095112E76Ba6ceC05>
+
+### Neon DevNet
+
+<https://neon-devnet.blockscout.com/address/0x3f114ab8b72d0e075bA3418F1Ea0d6D6d9699ED7>
+
+<https://neon-devnet.blockscout.com/address/0x342b41E0F99fb95F1667BC634Ca0872709e6d4b2>
+
+<https://neon-devnet.blockscout.com/address/0x75f87ADB1Bf202ac17b18f84726C326491251478>
+
+<https://neon-devnet.blockscout.com/address/0xf9Ef878eb9189a60caaa8c288fcc8B571059014B>
+
+### Gnosis Chiado Testnet
+
+<https://gnosis-chiado.blockscout.com/address/0xe078fe7A93017F8e18c1C52E79632d0B94c56c26>
+
+<https://gnosis-chiado.blockscout.com/address/0x8D36089AB6eFdB3FEb2D8Ed42F7eC80f3c6d2b11>
+
+<https://gnosis-chiado.blockscout.com/address/0x42Fc1d53EcF8B4c46989da0d44f07490668338c8>
+
+<https://gnosis-chiado.blockscout.com/address/0xEbb3113e97eeaA16Dcc2FebD6a1617AB731066AE>
 
 ## Tech Stack Used
 
-Client: Next.js, TailwindCSS, web3.js
+Client: Next.js, TailwindCSS, web3.js, Theme UI
 
-web3:  Hardhat, ethers.js, IPFS / Filecoin, XMTP
+web3:  Hardhat, ethers.js, IPFS / Filecoin, XMTP, EthSign
 
-BlockChain: BSC Testnet
+BlockChain: Arbitrum Sepolia Testnet, Neon Devnet and Gnosis Chiado Testnet
 
 ## To run the dapp Locally
 
@@ -60,12 +84,23 @@ BlockChain: BSC Testnet
 
 ### npm run dev
 
-Deploying on BSC Testnet / Mainnet
-
+Deploying on Testnet / Mainnet
 
 # This command will deploy your smart contract on BSC testnet
 
-  npx hardhat run scripts/deploy.js --network neondevnet
+  npx hardhat run scripts/deploy.js --network testnet
+
+## Areas where ZKPs can be effectively utilized
+
+User Authentication and Access Control: Implement ZKPs to authenticate users without requiring them to reveal their identities or sensitive information. This ensures that visitors can access museum content securely without compromising their privacy.
+
+Artifact Verification: Use ZKPs to verify the authenticity and ownership of museum artifacts without disclosing detailed information about them. This can help prevent the circulation of counterfeit or stolen artifacts while preserving the privacy of artifact owners.
+
+Anonymous Feedback and Interactions: Allow visitors to provide feedback or interact with exhibits anonymously using ZKPs. This encourages participation and engagement while protecting the identities of users who wish to remain anonymous.
+
+Transaction Privacy: Apply ZKPs to secure financial transactions within the museum platform, such as ticket purchases or donations. This ensures that transaction details remain private while still allowing for transparent and verifiable transactions.
+
+## Some assets on IPFS
 
 <https://dweb.link/ipfs/bafkreiens5gxjvktoyamjtyrzdx3zynp3pqysx4aamjaq7xmoilitwd6v4>   no-return
 
@@ -85,82 +120,25 @@ Deploying on BSC Testnet / Mainnet
 
 <https://dweb.link/ipfs/bafkreiazjwjv4xne5ddgw3ffespwnosqrm6ugsgy3fcbiz5e2xch3ygc2e>    Bitcoin Chain
 
+## Egypt collection <https://bafybeih6x7pjn4jjatjmgp4wewooa7g4vvch2xjudwyxyxo47risfehhbi.ipfs.dweb.link/>
 
-
-Introduction:
-As Web3 technologies revolutionize digital experiences, preserving user privacy and security becomes paramount. This project proposal aims to leverage zero-knowledge proofs (ZKPs) to enhance privacy and security in Web3 museums. By implementing ZKPs, we ensure that visitors can interact with museum exhibits while maintaining anonymity and confidentiality.
-
-Objectives:
-
-Develop a Web3 museum platform: Create a user-friendly digital museum platform where visitors can explore exhibits, interact with content, and engage with the cultural heritage.
-Implement Zero-Knowledge Proof (ZKP) protocol: Integrate ZKP protocols to authenticate user interactions without disclosing sensitive information, ensuring privacy and anonymity.
-Ensure data integrity: Employ cryptographic techniques to ensure the integrity and authenticity of museum artifacts and user interactions.
-Enhance user experience: Design an intuitive interface that enables seamless navigation and interaction within the museum while prioritizing user privacy and security.
-Conduct usability testing: Gather feedback from users to refine the platform's functionality, usability, and security features.
-Methodology:
-
-Research and Development: Conduct thorough research on ZKP protocols and cryptographic techniques suitable for Web3 museum applications. Develop the Web3 museum platform architecture and design the ZKP integration framework.
-Platform Implementation: Build the Web3 museum platform incorporating ZKP protocols to authenticate user interactions securely.
-User Interface Design: Design an intuitive and visually appealing user interface (UI) that enhances the user experience while maintaining privacy and security.
-Testing and Evaluation: Conduct rigorous testing to ensure the functionality, security, and privacy of the platform. Gather user feedback through usability testing to iterate and improve the platform.
-Deployment and Maintenance: Deploy the Web3 museum platform and ensure ongoing maintenance and updates to address security vulnerabilities and enhance user experience.
-Expected Outcomes:
-
-A functional Web3 museum platform that prioritizes user privacy and security.
-Integration of Zero-Knowledge Proofs to authenticate user interactions without compromising privacy.
-Enhanced user experience through intuitive interface design and seamless navigation.
-Increased awareness and adoption of privacy-preserving technologies in Web3 applications.
-Contribution to the advancement of privacy and security standards in digital cultural heritage preservation.
-Conclusion:
-By integrating Zero-Knowledge Proofs into Web3 museum applications, we can create a secure and privacy-preserving digital environment for exploring and interacting with cultural heritage. This project aims to pave the way for future developments in privacy-enhancing technologies within the Web3 ecosystem while providing a valuable resource for cultural education and preservation.
-
-
-n a Web3 museum application, Zero-Knowledge Proofs (ZKPs) can be applied in various areas to enhance privacy and security while maintaining the integrity of user interactions. Here are some potential areas where ZKPs can be effectively utilized:
-
-User Authentication and Access Control: Implement ZKPs to authenticate users without requiring them to reveal their identities or sensitive information. This ensures that visitors can access museum content securely without compromising their privacy.
-
-Artifact Verification: Use ZKPs to verify the authenticity and ownership of museum artifacts without disclosing detailed information about them. This can help prevent the circulation of counterfeit or stolen artifacts while preserving the privacy of artifact owners.
-
-Anonymous Feedback and Interactions: Allow visitors to provide feedback or interact with exhibits anonymously using ZKPs. This encourages participation and engagement while protecting the identities of users who wish to remain anonymous.
-
-Transaction Privacy: Apply ZKPs to secure financial transactions within the museum platform, such as ticket purchases or donations. This ensures that transaction details remain private while still allowing for transparent and verifiable transactions.
-
-Data Sharing with Third Parties: Utilize ZKPs to enable selective disclosure of information to third-party applications or services while preserving user privacy. This allows the museum to share relevant data with partners or researchers without compromising sensitive user information.
-
-Digital Asset Ownership and Transfer: Employ ZKPs to facilitate secure and private ownership transfer of digital assets, such as virtual representations of museum artifacts or collectibles. This ensures that ownership rights are securely transferred without revealing the identities of the parties involved.
-
-Proof of Concept and Exhibition Authenticity: Use ZKPs to provide verifiable proof of concept for digital exhibitions or artwork authenticity. This allows visitors to verify the authenticity of digital content while preserving the privacy of exhibition creators and contributors.
-
-By applying ZKPs in these areas, a Web3 museum application can offer enhanced privacy, security, and authenticity to its users while fostering trust and engagement within the digital cultural heritage space.
-
-## Egypt collection https://bafybeih6x7pjn4jjatjmgp4wewooa7g4vvch2xjudwyxyxo47risfehhbi.ipfs.dweb.link/
-
-dull image: https://bafybeih6x7pjn4jjatjmgp4wewooa7g4vvch2xjudwyxyxo47risfehhbi.ipfs.dweb.link/asset13.jpg
-broken nose : https://bafybeih6x7pjn4jjatjmgp4wewooa7g4vvch2xjudwyxyxo47risfehhbi.ipfs.dweb.link/asset14.jpg
-lion: https://bafybeih6x7pjn4jjatjmgp4wewooa7g4vvch2xjudwyxyxo47risfehhbi.ipfs.dweb.link/asset15.jpg
-bug : https://bafybeih6x7pjn4jjatjmgp4wewooa7g4vvch2xjudwyxyxo47risfehhbi.ipfs.dweb.link/bug.avif
-couple pharoah : https://bafybeih6x7pjn4jjatjmgp4wewooa7g4vvch2xjudwyxyxo47risfehhbi.ipfs.dweb.link/couplestatue.avif
-handwriting : https://bafybeih6x7pjn4jjatjmgp4wewooa7g4vvch2xjudwyxyxo47risfehhbi.ipfs.dweb.link/encrypted.avif
-frontgate : https://bafybeih6x7pjn4jjatjmgp4wewooa7g4vvch2xjudwyxyxo47risfehhbi.ipfs.dweb.link/frontgate.avif
-frontgate night: https://bafybeih6x7pjn4jjatjmgp4wewooa7g4vvch2xjudwyxyxo47risfehhbi.ipfs.dweb.link/frontnight.jpg
-front potrait : https://bafybeih6x7pjn4jjatjmgp4wewooa7g4vvch2xjudwyxyxo47risfehhbi.ipfs.dweb.link/frontpage.avif
-bracelet: https://bafybeih6x7pjn4jjatjmgp4wewooa7g4vvch2xjudwyxyxo47risfehhbi.ipfs.dweb.link/kingbracelet.avif
-lion status : https://bafybeih6x7pjn4jjatjmgp4wewooa7g4vvch2xjudwyxyxo47risfehhbi.ipfs.dweb.link/lionstatue.avif
-visitor mummy: https://bafybeih6x7pjn4jjatjmgp4wewooa7g4vvch2xjudwyxyxo47risfehhbi.ipfs.dweb.link/mummy.jpg
-sitting statue: https://bafybeih6x7pjn4jjatjmgp4wewooa7g4vvch2xjudwyxyxo47risfehhbi.ipfs.dweb.link/pharoahbench.avif
-tombs: https://bafybeih6x7pjn4jjatjmgp4wewooa7g4vvch2xjudwyxyxo47risfehhbi.ipfs.dweb.link/roomtomb.avif
-circle : https://bafybeih6x7pjn4jjatjmgp4wewooa7g4vvch2xjudwyxyxo47risfehhbi.ipfs.dweb.link/roundview.jpg
-pharoah lion: https://bafybeih6x7pjn4jjatjmgp4wewooa7g4vvch2xjudwyxyxo47risfehhbi.ipfs.dweb.link/sphinxstatue.avif
-tall statue: https://bafybeih6x7pjn4jjatjmgp4wewooa7g4vvch2xjudwyxyxo47risfehhbi.ipfs.dweb.link/status1.avif
-top view : https://bafybeih6x7pjn4jjatjmgp4wewooa7g4vvch2xjudwyxyxo47risfehhbi.ipfs.dweb.link/topview.jpg
-visitors: https://bafybeih6x7pjn4jjatjmgp4wewooa7g4vvch2xjudwyxyxo47risfehhbi.ipfs.dweb.link/visitors.jpg
-woman with statue : https://bafybeih6x7pjn4jjatjmgp4wewooa7g4vvch2xjudwyxyxo47risfehhbi.ipfs.dweb.link/womanculpture.avif
-
-
-            if ((window.ethereum.networkVersion !== "421614") || (window.ethereum.networkVersion !== "245022926") || (window.ethereum.networkVersion !== "245022926")) {
-              alert("Please connect to Arbitrum Sepolia Testnet or Gnosis Chiado Testnet or Neon Devnet Blockchain! \n You can add it to your Metamask using \n https://chainlist.org/chain/421614");
-              return;
-            } 
-
-
-https://testnet-scan.sign.global/schema/onchain_evm_421614_0x39
+dull image: <https://bafybeih6x7pjn4jjatjmgp4wewooa7g4vvch2xjudwyxyxo47risfehhbi.ipfs.dweb.link/asset13.jpg>
+broken nose : <https://bafybeih6x7pjn4jjatjmgp4wewooa7g4vvch2xjudwyxyxo47risfehhbi.ipfs.dweb.link/asset14.jpg>
+lion: <https://bafybeih6x7pjn4jjatjmgp4wewooa7g4vvch2xjudwyxyxo47risfehhbi.ipfs.dweb.link/asset15.jpg>
+bug : <https://bafybeih6x7pjn4jjatjmgp4wewooa7g4vvch2xjudwyxyxo47risfehhbi.ipfs.dweb.link/bug.avif>
+couple pharoah : <https://bafybeih6x7pjn4jjatjmgp4wewooa7g4vvch2xjudwyxyxo47risfehhbi.ipfs.dweb.link/couplestatue.avif>
+handwriting : <https://bafybeih6x7pjn4jjatjmgp4wewooa7g4vvch2xjudwyxyxo47risfehhbi.ipfs.dweb.link/encrypted.avif>
+frontgate : <https://bafybeih6x7pjn4jjatjmgp4wewooa7g4vvch2xjudwyxyxo47risfehhbi.ipfs.dweb.link/frontgate.avif>
+frontgate night: <https://bafybeih6x7pjn4jjatjmgp4wewooa7g4vvch2xjudwyxyxo47risfehhbi.ipfs.dweb.link/frontnight.jpg>
+front potrait : <https://bafybeih6x7pjn4jjatjmgp4wewooa7g4vvch2xjudwyxyxo47risfehhbi.ipfs.dweb.link/frontpage.avif>
+bracelet: <https://bafybeih6x7pjn4jjatjmgp4wewooa7g4vvch2xjudwyxyxo47risfehhbi.ipfs.dweb.link/kingbracelet.avif>
+lion status : <https://bafybeih6x7pjn4jjatjmgp4wewooa7g4vvch2xjudwyxyxo47risfehhbi.ipfs.dweb.link/lionstatue.avif>
+visitor mummy: <https://bafybeih6x7pjn4jjatjmgp4wewooa7g4vvch2xjudwyxyxo47risfehhbi.ipfs.dweb.link/mummy.jpg>
+sitting statue: <https://bafybeih6x7pjn4jjatjmgp4wewooa7g4vvch2xjudwyxyxo47risfehhbi.ipfs.dweb.link/pharoahbench.avif>
+tombs: <https://bafybeih6x7pjn4jjatjmgp4wewooa7g4vvch2xjudwyxyxo47risfehhbi.ipfs.dweb.link/roomtomb.avif>
+circle : <https://bafybeih6x7pjn4jjatjmgp4wewooa7g4vvch2xjudwyxyxo47risfehhbi.ipfs.dweb.link/roundview.jpg>
+pharoah lion: <https://bafybeih6x7pjn4jjatjmgp4wewooa7g4vvch2xjudwyxyxo47risfehhbi.ipfs.dweb.link/sphinxstatue.avif>
+tall statue: <https://bafybeih6x7pjn4jjatjmgp4wewooa7g4vvch2xjudwyxyxo47risfehhbi.ipfs.dweb.link/status1.avif>
+top view : <https://bafybeih6x7pjn4jjatjmgp4wewooa7g4vvch2xjudwyxyxo47risfehhbi.ipfs.dweb.link/topview.jpg>
+visitors: <https://bafybeih6x7pjn4jjatjmgp4wewooa7g4vvch2xjudwyxyxo47risfehhbi.ipfs.dweb.link/visitors.jpg>
+woman with statue : <https://bafybeih6x7pjn4jjatjmgp4wewooa7g4vvch2xjudwyxyxo47risfehhbi.ipfs.dweb.link/womanculpture.avif>
