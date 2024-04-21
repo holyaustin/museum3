@@ -161,3 +161,6 @@ woman with statue : https://bafybeih6x7pjn4jjatjmgp4wewooa7g4vvch2xjudwyxyxo47ri
               alert("Please connect to Arbitrum Sepolia Testnet or Gnosis Chiado Testnet or Neon Devnet Blockchain! \n You can add it to your Metamask using \n https://chainlist.org/chain/421614");
               return;
             } 
+
+
+https://testnet-scan.sign.global/schema/onchain_evm_421614_0x39
