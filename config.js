@@ -21,3 +21,7 @@ export const minterBadagryAddressneon = "0x342b41E0F99fb95F1667BC634Ca0872709e6d
 export const egyptAddressneon = "0x75f87ADB1Bf202ac17b18f84726C326491251478" 
 
 export const minterEgyptAddressneon = "0xf9Ef878eb9189a60caaa8c288fcc8B571059014B"
+
+export const egyptAddressmorph = "0xe078fe7A93017F8e18c1C52E79632d0B94c56c26" 
+
+export const minterEgyptAddressmorph = "0x8D36089AB6eFdB3FEb2D8Ed42F7eC80f3c6d2b11"

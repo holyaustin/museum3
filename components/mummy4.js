@@ -14,6 +14,9 @@ import { minterEgyptAddresschiado } from "../config";
 import fileNFTABI3 from "../artifacts/contracts/MinterEgypt.sol/MinterEgypt.json";
 import { minterEgyptAddressarbitrum } from "../config";
 
+import fileNFTABI4 from "../artifacts/contracts/MinterEgypt.sol/MinterEgypt.json";
+import { minterEgyptAddressmorph } from "../config";
+
 export default function ViewFile() {
   console.log('Entered viewing component');
   const router = useRouter();
@@ -51,7 +54,14 @@ export default function ViewFile() {
       setContractAddress(minterEgyptAddressneon);
       console.log('currently inside Neon Devnet');
       return;
-    } 
+    }
+          // Morph Testnet
+          else if (window.ethereum.networkVersion == "2710") {
+            setFileNFT(fileNFTABI4);
+            setContractAddress(minterEgyptAddressmorph );
+            console.log('currently inside Morph Testnet');
+            return;
+          } 
     else {
       router.push("/select");
       return;
@@ -70,9 +80,9 @@ export default function ViewFile() {
  
   const checkNetwork = async () => {
     try {
-      if ((window.ethereum.networkVersion !== "421614") && (window.ethereum.networkVersion !== "245022926") && (window.ethereum.networkVersion !== "10200")) {
+      if ((window.ethereum.networkVersion !== "421614") && (window.ethereum.networkVersion !== "245022926") && (window.ethereum.networkVersion !== "2710")  && (window.ethereum.networkVersion !== "10200")) {
     
-        alert("Please connect to Arbitrum Sepolia Testnet or Gnosis Chiado Testnet or Neon Devnet Blockchain! \n You can add it to your Wallet using \n https://chainlist.org/?testnets=true");
+        alert("Please connect to Arbitrum Sepolia Testnet or Gnosis Chiado Testnet or Morph Testnet or Neon Devnet Blockchain! \n You can add it to your Wallet using \n https://chainlist.org/?testnets=true");
         router.push("/select");
         return;
       } 

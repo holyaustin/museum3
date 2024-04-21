@@ -39,5 +39,12 @@ module.exports = {
       timeout: 1000000,
       isFork: true,
     },
+    morphTestnet: {
+      url: "https://rpc-testnet.morphl2.io",
+      accounts: [process.env.ACCOUNT_PRIVATE_KEY],
+      allowUnlimitedContractSize: false,
+      timeout: 1000000,
+      isFork: true,
+    },
   }
 };

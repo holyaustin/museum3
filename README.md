@@ -27,7 +27,7 @@ twitter (X) : @holyaustin
 
 ### 5. Video demo
 
-<https://youtu.be/Ti4RCKNeKuA>
+<https://youtu.be/IhpXg_sWpVk>
 
 ## 6. The contract address(es) or website URLs of your deployed application, either on a testnet of your choice or mainnet of a platform of choice
 
@@ -64,13 +64,18 @@ twitter (X) : @holyaustin
 
 <https://gnosis-chiado.blockscout.com/address/0xEbb3113e97eeaA16Dcc2FebD6a1617AB731066AE>
 
+### Morph Testnet
+https://explorer-testnet.morphl2.io/address/0xe078fe7A93017F8e18c1C52E79632d0B94c56c26
+
+https://explorer-testnet.morphl2.io/address/0x8D36089AB6eFdB3FEb2D8Ed42F7eC80f3c6d2b11
+
 ## Tech Stack Used
 
 Client: Next.js, TailwindCSS, web3.js, Theme UI
 
 web3:  Hardhat, ethers.js, IPFS / Filecoin, XMTP, EthSign
 
-BlockChain: Arbitrum Sepolia Testnet, Neon Devnet and Gnosis Chiado Testnet
+BlockChain: Arbitrum Sepolia Testnet, Neon Devnet, Morph Testnet and Gnosis Chiado Testnet
 
 ## To run the dapp Locally
 
@@ -88,7 +93,7 @@ Deploying on Testnet / Mainnet
 
 # This command will deploy your smart contract on BSC testnet
 
-  npx hardhat run scripts/deploy.js --network testnet
+  npx hardhat run scripts/deploy.js --network morphTestnet
 
 ## Areas where ZKPs can be effectively utilized
 

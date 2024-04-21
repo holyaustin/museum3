@@ -50,7 +50,7 @@ const ConnectWallet = () => {
     try {
       if ((window.ethereum.networkVersion !== "421614") && (window.ethereum.networkVersion !== "245022926") && (window.ethereum.networkVersion !== "10200")) {
     
-        alert("Please connect to Arbitrum Sepolia Testnet or Gnosis Chiado Testnet or Neon Devnet Blockchain! \n You can add it to your Wallet using \n https://chainlist.org/?testnets=true");
+        alert("Please connect to Arbitrum Sepolia Testnet or Gnosis Chiado Testnet or Morph Testnet or Neon Devnet Blockchain! \n You can add it to your Wallet using \n https://chainlist.org/?testnets=true");
         return;
       } 
       
@@ -79,9 +79,9 @@ const ConnectWallet = () => {
   const connectWallet = async () => {
     checkMetamaskAvailability();
     //checkNetwork();
-    if ((window.ethereum.networkVersion !== "421614") && (window.ethereum.networkVersion !== "245022926") && (window.ethereum.networkVersion !== "10200")) {
+    if ((window.ethereum.networkVersion !== "421614") && (window.ethereum.networkVersion !== "2710") && (window.ethereum.networkVersion !== "245022926") && (window.ethereum.networkVersion !== "10200")) {
     
-      alert("Please connect to Arbitrum Sepolia Testnet or Gnosis Chiado Testnet or Neon Devnet Blockchain! \n You can add it to your Metamask using \n https://chainlist.org/chain/421614");
+      alert("Please connect to Arbitrum Sepolia Testnet or Gnosis Chiado Testnet or Morph Testnet or Neon Devnet Blockchain! \n You can add it to your Wallet using \n https://chainlist.org/chain/421614");
       return;
     } 
    
